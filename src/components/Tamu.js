@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
+import Header from './Header';
 
 class Tamu extends Component {
 
@@ -33,7 +34,9 @@ render() {
     ruang = "Ruang Bawah";
   }
   return (
-    <div className="App">
+    <>
+    <Header/>
+    <div className="Tamu">
       <h1>Tamu</h1>
 
         <div className='container'>
@@ -63,6 +66,7 @@ render() {
           </div>
         </div>
     </div>
+    </>
   );
 }
 }

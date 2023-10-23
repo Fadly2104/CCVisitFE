@@ -1,0 +1,263 @@
+/* Beranda */
+.NavbarSt {
+    background-color: #D9D9D970;
+}
+
+.TextBrn {
+    text-shadow: 6px 4px 3px black;
+}
+
+.BtnBrn {
+    box-shadow: 1px 2px 15px black;
+}
+
+.Paragraf {
+    font-size: 20; 
+    font-weight: 400;
+}
+
+#bg2 {
+    background-image: 
+    -webkit-linear-gradient(right, rgb(255, 255, 255) 0%, rgba(0, 0, 0, 0) 59%, rgba(255, 255, 255, 0) 100%), 
+    -webkit-linear-gradient(bottom, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0) 59%, rgba(255, 255, 255, 0) 100%),
+    url('../assets/b2.jpg');
+}
+
+#cardb3 {
+    border-radius: 30px;
+    height: 600px;
+}
+
+#cardb4 {
+    border-radius: 30px;
+    margin-top: 120px;
+    background-color: #D9D9D9;
+    border-color: #D9D9D9;
+}
+
+.cardbo3 {
+    background-color: #D9D9D9;
+    border-radius: 30px;
+}
+
+#cartext {
+    font-size: 48;
+}
+
+#Carhed {
+    align-items: center;
+    border-radius: 30px;
+    background-color: #FDCD04;
+    border-color: #FDCD04;
+    font-family: fantasy;
+    top: 50px;
+    z-index: 1;
+}
+
+#Carhedcen {
+    align-items: center;
+    border-radius: 30px;
+    background-color: #FDCD04;
+    border-color: #FDCD04;
+    font-family: fantasy;
+    top: 200px;
+    z-index: 1;
+}
+
+#ulca {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: lighter;
+    padding-top: 100px;
+    padding-right: 50px;
+    padding-left: 100px;
+}
+
+#ctex {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: lighter;
+    padding-top: 100px;
+    padding-right: 50px;
+    padding-left: 100px;
+    padding-bottom: 20px;
+}
+
+#blockchart {
+    margin-top: 100px;
+    width: 100%;
+}
+
+#chalabel {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+#chadesc1 {
+    margin-inline-start: 50px;
+}
+
+#chadesc2 {
+    margin-inline-start: 25px;
+}
+
+#chadesc3 {
+    margin-inline-start: 25px;
+}
+
+#chadesc4 {
+    margin-inline-start: 25px;
+}
+
+#chadesc5 {
+    margin-inline-start: 28px;
+}
+
+#galeri {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+#caroimg {
+    width: 280px;
+    margin-inline: 6px;
+    border-radius: 20px;
+}
+
+#carousel {
+    padding-top: 30px;
+    padding-bottom: 50px;
+    padding-inline-start: 220px;
+    padding-inline-end: 220px;
+}
+
+#footer {
+    background-color: blackd;
+}
+
+#footimg {
+    width: 280px;
+    margin-top: 60px;
+}
+
+#fontkuning {
+    color: #FDCD04;   
+    font-family: fantasy;
+    font-weight: 100;
+    margin-top: 50px;
+}
+/* /Beranda */
+
+
+/* Scroll */
+.top-to-btm{
+    position: relative;
+  }
+  .icon-position{
+    position: fixed;
+    bottom: 40px;
+    right: 25px;
+    z-index: 20;
+  }
+  .icon-style{
+    background-color: #FDCD04;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    color: #fff;
+    cursor: pointer;
+    animation: movebtn 3s ease-in-out infinite;
+    transition: all .5s ease-in-out;
+  }
+  .icon-style:hover{
+    animation: none;
+    background: #fff;
+    color: #FDCD04;
+    border: 2px solid #551B54;
+  }
+  @keyframes movebtn {
+    0%{
+      transform: translateY(0px);
+    }
+    25%{
+      transform: translateY(20px);
+    }
+    50%{
+      transform: translateY(0px);
+    }
+    75%{
+      transform: translateY(-20px);
+    }
+    100%{
+      transform: translateY(0px);
+    }
+  }
+/* /Scroll */
+
+
+/* Registrasi */
+.registrasi {
+    background-image: url('../assets/cc5.jpg');
+    background-size: cover;
+    height: 100vh;
+    background-repeat: no-repeat;
+}
+
+#cardreg {
+    background-color: #ffffffe5;
+    margin-inline-end: 100px;
+    margin-inline-start: 100px;
+    border-radius: 25px;
+}
+
+#foreg {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 700;
+    margin-top: 30px;
+}
+
+#form {
+    margin-inline-start: 50px;
+    margin-inline-end: 50px;
+}
+
+#formgroup {
+    background-color: #D9D9D9;
+    border-width: 1px;
+    border-color: black;
+}
+
+#jumlahtamu {
+    background-color: #D9D9D9;
+    border-width: 1px;
+    border-color: black;
+    width: 70px;
+}
+/* /Registrasi */
+
+
+/* Survey */
+.star {
+  cursor: pointer;
+  transition: color 200ms;
+}
+
+
+#btnRate {
+    background-color: #ffffff;
+    color: #D9D9D9;
+    border-color: #D9D9D9;
+}
+
+#bg-yellow {
+    border-color: #000000;
+    background-color: #FDCD04;
+    color: #000000;
+}
+
+
+#btnRate:hover {
+    background-color: #FDCD04;
+    color: #000000;
+}
+
+/* /Survey */
