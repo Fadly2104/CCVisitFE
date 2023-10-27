@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@react-email/button": "^0.0.10",
+    "@react-email/html": "^0.0.4",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -22,6 +24,7 @@
     "react-simple-star-rating": "^5.1.7",
     "react-sweetalert2": "^0.6.0",
     "recharts": "^2.8.0",
+    "resend": "^1.1.0",
     "sweetalert": "^2.1.2",
     "sweetalert2": "^11.7.29",
     "sweetalert2-react-content": "^5.0.7",

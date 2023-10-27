@@ -21,24 +21,21 @@ export default function Registrasi() {
   ];
 
   const Navigate = useNavigate();
-  const [namaTamu, setNamaTamu] = useState('');
-  const [emailTamu, setEmailTamu] = useState('');
-  const [noTelepon, setNoTelepon] = useState('');
+  const [namaPIC, setNamaPIC] = useState('');
+  const [email, setEmail] = useState('');
+  const [noHp, setNoHp] = useState('');
 
   const handleSubmit = e => {
     // Prevent the default submit and page reload
     e.preventDefault()
     try {
-      axios.post('https://localhost:7286/api/Tamu', {
-            namaTamu: namaTamu,
-            emailTamu: emailTamu,
-            noTelepon: noTelepon
-    }).then((res) => {
-    Navigate("/team", {
+      Navigate("/ruang", {
         state:{
-          idTamu: res.data.idTamu
+          namaPIC: namaPIC,
+          email: email,
+          noHp: noHp,
         }
-      })});
+      });
       // window.location = "/beranda"  
       
 
@@ -70,9 +67,9 @@ export default function Registrasi() {
                     type="text"
                     placeholder="Nama Lengkap"
                     id='formgroup'
-                    name="namaTamu"
-                    value={namaTamu}
-                    onChange={e => setNamaTamu(e.target.value)}
+                    name="namaPIC"
+                    value={namaPIC}
+                    onChange={e => setNamaPIC(e.target.value)}
                   />
                   <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                 </Form.Group>
@@ -84,9 +81,9 @@ export default function Registrasi() {
                     type="text"
                     placeholder="Email"
                     id='formgroup'
-                    name="emailTamu"
-                    value={emailTamu}
-                    onChange={e => setEmailTamu(e.target.value)}
+                    name="email"
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
                   />
                   <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                 </Form.Group>
@@ -98,9 +95,9 @@ export default function Registrasi() {
                     type="text"
                     placeholder="No. Telepon"
                     id='formgroup'
-                    name="noTelepon"
-                    value={noTelepon}
-                    onChange={e => setNoTelepon(e.target.value)}
+                    name="noHp"
+                    value={noHp}
+                    onChange={e => setNoHp(e.target.value)}
                   />
                   <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                 </Form.Group>
