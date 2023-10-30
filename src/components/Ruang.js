@@ -23,16 +23,16 @@ export default function Tamu() {
   const [fas, setFas] = useState();
 
   const fa = () => {
-    if (fas == 1) {
+    if (fas === 1) {
       return <span>20 - 24 Orang</span>
     }
-    if (fas == 2) {
+    if (fas === 2) {
       return <span>6 - 8 Orang</span>
     }
-    if (fas == 3) {
+    if (fas === 3) {
       return <span>14 - 15 Orang</span>
     }
-    if (fas == 4) {
+    if (fas === 4) {
       return <span>5 - 6 Orang</span>
     }
     else{
@@ -133,22 +133,22 @@ const woo = data.map((dt) => dt.availability);
 const [available, setAvailable] = useState();
 
 const handleChange = event => {
-  if (event.target.value == 1) {
+  if (event.target.value === 1) {
     setRuang(event.target.value);
     setMax(20)
     setFas(1)
     setAvailable(woo[0])
-  } if (event.target.value == 2) {
+  } if (event.target.value === 2) {
     setRuang(event.target.value);
     setMax(8)
     setFas(2)
     setAvailable(woo[1])
-  } if (event.target.value == 3) {
+  } if (event.target.value === 3) {
     setRuang(event.target.value);
     setMax(15)
     setFas(3)
     setAvailable(woo[2])
-  } if (event.target.value == 4) {
+  } if (event.target.value === 4) {
     setRuang(event.target.value);
     setMax(6)
     setFas(4)
@@ -190,7 +190,7 @@ const handleKeperluan = event => {
                                   if (available === true) {
                                     return <h3><AiFillCheckCircle /> TERSEDIA</h3>;
                                   } else {
-                                    return <h3><AiFillClockCircle /> DIPESAN</h3>;
+                                    return <h3><AiFillClockCircle /> BOOKED</h3>;
                                   }
                                 })()}
                             </div>
