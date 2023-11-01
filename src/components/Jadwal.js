@@ -19,6 +19,7 @@ export default function Jadwal() {
      const customHeadings = postData.data.map(item=>({
         "idPeminjaman": item.idPeminjaman,
         "idRuangan": item.idRuangan,
+        "ticket": item.ticket,
         "namaRuangan": item.namaRuangan,
         "namaPIC": item.namaPIC,
         "email": item.email,
@@ -59,7 +60,7 @@ export default function Jadwal() {
               return (
                 <div className='col-4' key={item.idPeminjaman}>
                     <Card className='mx-2 mt-5'>
-                        <Card.Header>Peminjaman No. {item.idPeminjaman}</Card.Header>
+                        <Card.Header>Peminjaman No. {item.ticket}</Card.Header>
                         <Card.Body>
                             <Table>
                                 <thead>

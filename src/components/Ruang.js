@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { Card, Form, Button } from 'react-bootstrap';
 import Header from './Header';
 import { AiFillCheckCircle } from 'react-icons/ai'
@@ -12,7 +12,7 @@ export default function Tamu() {
 
   const [data, setData] = useState([])
 
-  const [swalProps, setSwalProps] = useState({});
+  const [peminjaman, setPeminjaman] = useState([]);
 
   const [ruang, setRuang] = useState(1);
 
@@ -74,9 +74,30 @@ useEffect(() => {
   fetchData()
 }, [])  
 
-// const wee = data.map((png) => png );
+useEffect(() => {
+  const fetchData = () =>{
+   axios.get('https://localhost:7286/api/Peminjaman').then(postPm => {
 
-// console.log(wee);
+   // reshaping the array
+   const pinjam = postPm.data.map(item=>({
+    "idPeminjaman": item.idPeminjaman,
+    "idRuangan": item.idRuangan,
+    "namaPIC": item.namaPIC,
+    "email": item.email,
+    "noHp": item.noHp,
+    "jumlahTamu": item.jumlahTamu,
+    "status": item.status,
+    "startTime": item.startTime,
+    "endTime": item.endTime,
+    "keperluan": item.keperluan,
+    "detailKeperluan": item.detailKeperluan
+   }))
+   setPeminjaman(pinjam)
+    // console.log(pinjam);
+   })
+  }
+  fetchData()
+}, [])
 
 const [startTime, setStartTime] = useState('');
 const [endTime, setEndTime] = useState('');
@@ -93,6 +114,7 @@ const handleSubmit = e => {
   try {
   axios.post('https://localhost:7286/api/Peminjaman', {
     idRuangan: ruang,
+    ticket: "",
     namaPIC: location.state.namaPIC,
     email: location.state.email,
     noHp: location.state.noHp,
@@ -106,16 +128,15 @@ const handleSubmit = e => {
   } catch (error) {
     if (location.state == null) {
       Swal.fire({  
-        title: 'Terjadi Kesalahan',  
-        type: 'danger',  
+        title: 'Terjadi Kesalahan',
         text: 'Mohon untuk mengisi data PIC.',
-        icon: "danger",
+        icon: "error",
         confirmButtonText: "OK",
       }).then(function() {
         window.location.href = '/registrasi';  
       }); 
     }
-    console.log({error});
+    // console.log({error});
   }
   
 }
@@ -128,27 +149,27 @@ const handleMinMax = event => {
   setJumlahTamu(value)
 }
 
-const woo = data.map((dt) => dt.availability);
+const   woo = data.map((dt) => dt.availability);
 // console.log(woo[0]);
-const [available, setAvailable] = useState();
+const [available, setAvailable] = useState(2);
 
 const handleChange = event => {
-  if (event.target.value === 1) {
+  if (event.target.value == 1) {
     setRuang(event.target.value);
-    setMax(20)
+    setMax(24)
     setFas(1)
     setAvailable(woo[0])
-  } if (event.target.value === 2) {
+  } if (event.target.value == 2) {
     setRuang(event.target.value);
     setMax(8)
     setFas(2)
     setAvailable(woo[1])
-  } if (event.target.value === 3) {
+  } if (event.target.value == 3) {
     setRuang(event.target.value);
     setMax(15)
     setFas(3)
     setAvailable(woo[2])
-  } if (event.target.value === 4) {
+  } if (event.target.value == 4) {
     setRuang(event.target.value);
     setMax(6)
     setFas(4)
@@ -161,6 +182,27 @@ const handleKeperluan = event => {
   // console.log(event.target.value);
   setKeperluan(event.target.value);
 };
+
+const handleTime = event => {
+  // console.log(moment(event.target.value).format('yyyy-MM-D'));
+  setStartTime(event.target.value)
+
+  const isFound = peminjaman.some(pm => {
+    if (pm.idRuangan == ruang && moment(event.target.value).format('yyyy-MM-D') == moment(pm.startTime).format('yyyy-MM-D') && pm.status !== "Done" ) {
+      return true;
+    } else {
+      return false;
+    }
+  })
+
+  if (isFound) {
+    console.log('✅');
+    setAvailable(false)
+  } else {
+    console.log('⛔️');
+    setAvailable(true)
+  }
+}
 
   return (
     <>
@@ -189,7 +231,7 @@ const handleKeperluan = event => {
                                 {(function() {
                                   if (available === true) {
                                     return <h3><AiFillCheckCircle /> TERSEDIA</h3>;
-                                  } else {
+                                  } if (available === false) {
                                     return <h3><AiFillClockCircle /> BOOKED</h3>;
                                   }
                                 })()}
@@ -249,7 +291,7 @@ const handleKeperluan = event => {
                         id='formgroup'
                         name="startTime"
                         value={startTime}
-                        onChange={setStartTime}
+                        onChange={e => setStartTime(e.target.value)}
                       /> */}
                       <Form.Control
                         required
@@ -259,7 +301,7 @@ const handleKeperluan = event => {
                         name="startTime"
                         value={startTime}
                         min={endOfDay}
-                        onChange={e => setStartTime(e.target.value)}
+                        onChange={handleTime}
                         />
                       <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                     </div>

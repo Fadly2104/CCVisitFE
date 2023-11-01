@@ -5,6 +5,7 @@ import Tamu from "./Tamu";
 import Registrasi from "./Registrasi";
 import Ruang from "./Ruang";
 import Survey from "./Survey";
+import TimSurvey from "./TimSurvey";
 import Jadwal from "./Jadwal";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
     <Route path="/registrasi" element={<Registrasi />} />
     <Route path="/ruang" element={<Ruang />} />
     <Route path="/survey" element={<Survey />} />
+    <Route path="/timsurvey" element={<TimSurvey />} />
     <Route path="/jadwal" element={<Jadwal />} />
     </Routes>
   )
