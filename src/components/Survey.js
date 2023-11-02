@@ -55,10 +55,18 @@ export default function Survey() {
           "kelengkapan": kelengkapan,
           "rating": rating,
           "saran": saran
-      }).then(res => console.log(res));
-  
+      });
       } catch (error) {
-        console.log({error});
+        if (location.state == null) {
+          Swal.fire({  
+            title: 'Terjadi Kesalahan',
+            text: 'Mohon untuk memilih tim anda.',
+            icon: "error",
+            confirmButtonText: "OK",
+          }).then(function() {
+            window.location.href = '/timsurvey';  
+          }); 
+        }
       }
       
     }
