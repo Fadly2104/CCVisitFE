@@ -24,19 +24,18 @@ export default function Tamu() {
 
   const fa = () => {
     if (fas === 1) {
-      return <span>20 - 24 Orang</span>
+      return <span>20 - 24 Orang</span>;
     }
     if (fas === 2) {
-      return <span>6 - 8 Orang</span>
+      return <span>6 - 8 Orang</span>;
     }
     if (fas === 3) {
-      return <span>14 - 15 Orang</span>
+      return <span>14 - 15 Orang</span>;
     }
     if (fas === 4) {
-      return <span>5 - 6 Orang</span>
-    }
-    else{
-      return <span><i>Silahkan memilih ruang terlebih dahulu</i></span>
+      return <span>5 - 6 Orang</span>;
+    } else {
+      return <span><i>Silahkan memilih ruang terlebih dahulu</i></span>;
     }
   };
 
@@ -56,48 +55,48 @@ export default function Tamu() {
 }
 
 // console.log(ruang);
-useEffect(() => {
-  const fetchData = () =>{
-   axios.get('https://localhost:7286/api/Ruangan').then(postData => {
+// useEffect(() => {
+//   const fetchData = () =>{
+//    axios.get('https://localhost:7286/api/Ruangan').then(postData => {
 
-   // reshaping the array
-   const customHeadings = postData.data.map(item=>({
-     "idRuangan": item.idRuangan,
-     "namaRuangan": item.namaRuangan,
-     "kapasitas": item.kapasitas,
-     "availability": item.availability,
-   }))
-   setData(customHeadings)
-    // console.log(customHeadings);
-   })
-  }
-  fetchData()
-}, [])  
+//    // reshaping the array
+//    const customHeadings = postData.data.map(item=>({
+//      "idRuangan": item.idRuangan,
+//      "namaRuangan": item.namaRuangan,
+//      "kapasitas": item.kapasitas,
+//      "availability": item.availability,
+//    }))
+//    setData(customHeadings)
+//     // console.log(customHeadings);
+//    })
+//   }
+//   fetchData()
+// }, [])  
 
-useEffect(() => {
-  const fetchData = () =>{
-   axios.get('https://localhost:7286/api/Peminjaman').then(postPm => {
+// useEffect(() => {
+//   const fetchData = () =>{
+//    axios.get('https://localhost:7286/api/Peminjaman').then(postPm => {
 
-   // reshaping the array
-   const pinjam = postPm.data.map(item=>({
-    "idPeminjaman": item.idPeminjaman,
-    "idRuangan": item.idRuangan,
-    "namaPIC": item.namaPIC,
-    "email": item.email,
-    "noHp": item.noHp,
-    "jumlahTamu": item.jumlahTamu,
-    "status": item.status,
-    "startTime": item.startTime,
-    "endTime": item.endTime,
-    "keperluan": item.keperluan,
-    "detailKeperluan": item.detailKeperluan
-   }))
-   setPeminjaman(pinjam)
-    // console.log(pinjam);
-   })
-  }
-  fetchData()
-}, [])
+//    // reshaping the array
+//    const pinjam = postPm.data.map(item=>({
+//     "idPeminjaman": item.idPeminjaman,
+//     "idRuangan": item.idRuangan,
+//     "namaPIC": item.namaPIC,
+//     "email": item.email,
+//     "noHp": item.noHp,
+//     "jumlahTamu": item.jumlahTamu,
+//     "status": item.status,
+//     "startTime": item.startTime,
+//     "endTime": item.endTime,
+//     "keperluan": item.keperluan,
+//     "detailKeperluan": item.detailKeperluan
+//    }))
+//    setPeminjaman(pinjam)
+//     // console.log(pinjam);
+//    })
+//   }
+//   fetchData()
+// }, [])
 
 const [startTime, setStartTime] = useState('');
 const [endTime, setEndTime] = useState('');
@@ -112,19 +111,19 @@ const handleSubmit = e => {
   // Prevent the default submit and page reload
   e.preventDefault()
   try {
-  axios.post('https://localhost:7286/api/Peminjaman', {
-    idRuangan: ruang,
-    ticket: "",
-    namaPIC: location.state.namaPIC,
-    email: location.state.email,
-    noHp: location.state.noHp,
-    jumlahTamu: jumlahTamu,
-    startTime: startTime,
-    endTime: endTime,
-    keperluan: keperluan,
-    detailKeperluan: detailKeperluan,
-    status: status
-  });
+  // axios.post('https://localhost:7286/api/Peminjaman', {
+  //   idRuangan: ruang,
+  //   ticket: "",
+  //   namaPIC: location.state.namaPIC,
+  //   email: location.state.email,
+  //   noHp: location.state.noHp,
+  //   jumlahTamu: jumlahTamu,
+  //   startTime: startTime,
+  //   endTime: endTime,
+  //   keperluan: keperluan,
+  //   detailKeperluan: detailKeperluan,
+  //   status: status
+  // });
   } catch (error) {
     if (location.state == null) {
       Swal.fire({  
@@ -206,18 +205,18 @@ const handleTime = event => {
 
   return (
     <>
-    <div className='registrasi'>
+    <div className='ruang'>
     <Header/>
         <div className='container'>
-        <Card id='cardreg' className='mt-3 mb-3'>
+        <Card id='cardregs' className='mb-3'>
           <Card.Body>
             <h2 className='text-center' id='foreg'>PILIH RUANG</h2>
                 
-            <Form id='form' action="" method="post" onSubmit={handleSubmit}>
+            <Form id='forms' action="" method="post" onSubmit={handleSubmit}>
                 <Form.Group md="4" controlId="validationCustom01">
                     <div className='row'>
-                        <div className='col-6'>
-                            <Form.Label>Ruangan</Form.Label>
+                        <div className='col-md-4'>
+                            <Form.Label className='mt-2'>Ruangan</Form.Label>
                             <Form.Select id='formgroup' onChange={handleChange} name="ruang" aria-label="Default select example" required>
                               <option value={0}>-- Pilih Ruangan --</option>
                               <option value={1}>Ruang Collaboration</option>
@@ -226,13 +225,13 @@ const handleTime = event => {
                               <option value={4}>Ruang Inspiring</option>
                             </Form.Select>
                         </div>
-                        <div className='col-6'>
-                            <div style={{marginTop: 30, marginInlineStart: 50}}>
+                        <div className='col-5'>
+                            <div id='tanda'>
                                 {(function() {
                                   if (available === true) {
-                                    return <h3><AiFillCheckCircle /> TERSEDIA</h3>;
+                                    return <h3><AiFillCheckCircle style={{marginTop: 4}}/> TERSEDIA</h3>;
                                   } if (available === false) {
-                                    return <h3><AiFillClockCircle /> BOOKED</h3>;
+                                    return <h3><AiFillClockCircle style={{marginTop: 4}}/> BOOKED</h3>;
                                   }
                                 })()}
                             </div>
@@ -240,14 +239,14 @@ const handleTime = event => {
                     </div>
                 </Form.Group>
                 
-                <div className='row'>
-                  <div className='col-9 mt-4'>
+                <div className='row' id="kartu">
+                  <div id='rows'>
                     <h6>Kapasitas:</h6>
-                    <ul>{fa()}</ul>
+                    <ul className='custom-spacing'>{fa()}</ul>
                     <Form.Label className='mt-2'>Jumlah Tamu</Form.Label>
                     <div>
                     <Form.Control
-                      style={{width: 100, display: 'inline-block'}}
+                      style={{width: 50, display: 'inline-block'}}
                       required
                       type="number"
                       placeholder="1"
@@ -258,16 +257,16 @@ const handleTime = event => {
                     />
                     </div>
                   </div>
-                  <div className='col-3 text-end mt-4'>
+                  <div id='perlu'>
                     <Form.Label>Keperluan</Form.Label>
-                    <Form.Select id='formgroup' onChange={handleKeperluan} name="ruang" aria-label="Default select example" required>
+                    <Form.Select id='keperluan' onChange={handleKeperluan} name="ruang" aria-label="Default select example" required>
                       <option value={'Meeting'}>Meeting</option>
                       <option value={'Weekly Check In'}>Weekly Check In</option>
                     </Form.Select>
-                    <Form.Label className='mt-2'>Detail Keperluan</Form.Label>
+                    <Form.Label className='jarak-a'>Detail Keperluan</Form.Label>
                     <div>
                     <Form.Control
-                      style={{width: 225, display: 'inline-block'}}
+                      style={{width: 150, display: 'inline-block'}}
                       required
                       type="text"
                       placeholder="Rincian keperluan anda"
@@ -282,9 +281,9 @@ const handleTime = event => {
 
                 <Form.Group md="4" className='mt-4'>
                   <h6><b>Waktu Berkunjung</b></h6>
-                  <div className='row'>
-                    <div className='col-4'>
-                      <Form.Label>Mulai</Form.Label>
+                  <div className='row' id='calendar'>
+                    <div className='col-6'>
+                      <Form.Label >Mulai</Form.Label>
                       {/* <Flatpickr
                         required
                         options={{ time_24hr: true, enableTime: true, dateFormat: "Y-M-d H:i", }}
@@ -305,9 +304,7 @@ const handleTime = event => {
                         />
                       <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                     </div>
-                    <div className='col-4'>
-                    </div>
-                    <div className='col-4'>
+                    <div className='col-6'>
                       <Form.Label>Selesai</Form.Label>
                       {/* <Flatpickr
                         required
@@ -335,17 +332,18 @@ const handleTime = event => {
                 <div className='button text-center' style={{marginTop: 35}}>
                     {(function() {
                       if (available === true) {
-                        return <Button className="ms-5 BtnBrn" variant='dark' style={{width: "20%", backgroundColor: '#FDCD04', borderRadius: 30}} type="submit" onClick={handleClick}>
+                        return <Button className="BtnBrn" variant='dark' style={{backgroundColor: '#FDCD04', borderRadius: 30}} type="submit" onClick={handleClick}>
                                   <h3 style={{color: 'black', fontWeight: 700, fontFamily: 'inherit'}}>SUBMIT</h3>
                               </Button>
                       } else {
-                        return <Button className="ms-5 BtnBrn" variant='dark' style={{width: "20%", backgroundColor: '#FDCD04', borderRadius: 30}} type="button" onClick={handleClick} disabled>
+                        return <Button className="BtnBrn" variant='dark' style={{backgroundColor: '#FDCD04', borderRadius: 30}} type="button" onClick={handleClick} disabled>
                                     <h3 style={{color: 'black', fontWeight: 700, fontFamily: 'inherit'}}>SUBMIT</h3>
                                 </Button>
                       }
                     })()}
                       
                 {/* <SweetAlert2 {...swalProps}>
+
                 </SweetAlert2> */}
                 </div>
                 

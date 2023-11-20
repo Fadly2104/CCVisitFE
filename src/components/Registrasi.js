@@ -55,7 +55,7 @@ export default function Registrasi() {
     <div className='registrasi'>
     <Header/>
         <div className='container'>
-        <Card id='cardreg' className='mt-3 pb-3'>
+        <Card id='cardreg' className='pb-3'>
           <Card.Body>
             <h2 className='text-center' id='foreg'>REGISTRASI</h2>
                 
@@ -104,8 +104,8 @@ export default function Registrasi() {
 
                 <div className='button text-center' style={{marginTop: 49}}>
                   {/* <Link to="/ruang"> */}
-                      <Button className="ms-5 BtnBrn" variant='dark' style={{width: "20%", backgroundColor: '#FDCD04', borderRadius: 30}} type="submit">
-                          <h3 style={{color: 'black', fontWeight: 700, fontFamily: 'inherit'}}>LANJUTKAN</h3>
+                      <Button className="BtnBrn" variant='dark' style={{backgroundColor: '#FDCD04', borderRadius: 30}} type="submit">
+                          <h4 style={{color: 'black', fontWeight: 500, fontSize: 20, fontFamily: 'inherit'}}>LANJUTKAN</h4>
                       </Button>
                   {/* </Link> */}
                 </div>
