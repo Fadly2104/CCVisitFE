@@ -48,7 +48,7 @@ export default function Survey() {
       // Prevent the default submit and page reload
       e.preventDefault()
       try {
-        axios.post(`https://localhost:7286/api/Review/${location.state.idTim}`, {
+        axios.post(`https://1354-114-129-21-140.ngrok-free.app/api/Review/${location.state.idTim}`, {
           "idReview": 0,
           "idPeminjaman": location.state.idTim,
           "kenyamanan": kenyamanan,

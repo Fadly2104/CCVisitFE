@@ -13,7 +13,7 @@ export default function TimSurvey() {
 
     useEffect(() => {
         const fetchData = () =>{
-         axios.get('https://localhost:7286/api/Peminjaman').then(postData => {
+         axios.get('https://1354-114-129-21-140.ngrok-free.app/api/Peminjaman').then(postData => {
       
          // reshaping the array
          const customHeadings = postData.data.map(item=>({

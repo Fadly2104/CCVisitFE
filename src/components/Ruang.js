@@ -10,7 +10,13 @@ import moment from 'moment';
 
 export default function Tamu() {
 
-  const [data, setData] = useState([])
+  const [data, setData] = useState([]);
+
+  data.map((e, index) => {
+    return{
+
+    }
+  });
 
   const [peminjaman, setPeminjaman] = useState([]);
 
@@ -54,49 +60,63 @@ export default function Tamu() {
     }); 
 }
 
-// console.log(ruang);
-// useEffect(() => {
-//   const fetchData = () =>{
-//    axios.get('https://localhost:7286/api/Ruangan').then(postData => {
+console.log(ruang);
+useEffect(() => {
+  const fetchData = () =>{
+   axios.get('https:/1354-114-129-21-140.ngrok-free.app/api/Ruangan', {
+    headers:{
+      'ngrok-skip-browser-warning': true
+    }
+   }).then(postData => {
+    console.log(postData)
+   // reshaping the array
+   const customHeadings = postData.data.map(item=>({
+     "idRuangan": item.idRuangan,
+     "namaRuangan": item.namaRuangan,
+     "kapasitas": item.kapasitas,
+     "availability": item.availability,
+     
+   }))
+   setData(customHeadings)
+     
+   })
+  }
+  fetchData()
+}, [])  
 
-//    // reshaping the array
-//    const customHeadings = postData.data.map(item=>({
-//      "idRuangan": item.idRuangan,
-//      "namaRuangan": item.namaRuangan,
-//      "kapasitas": item.kapasitas,
-//      "availability": item.availability,
-//    }))
-//    setData(customHeadings)
-//     // console.log(customHeadings);
-//    })
-//   }
-//   fetchData()
-// }, [])  
+  // axios.get('https:/1354-114-129-21-140.ngrok-free.app/api/Ruangan', {
+  //     headers:{
+  //       'ngrok-skip-browser-warning': true
+  //     }
+  //   }).then(res => console.log(res.data))
+useEffect(() => {
+  const fetchData = () =>{
+   axios.get('https://1354-114-129-21-140.ngrok-free.app/api/Peminjaman', {
+    headers:{
+      'ngrok-skip-browser-warning': true
+    }
+   }).then(postPm => {
 
-// useEffect(() => {
-//   const fetchData = () =>{
-//    axios.get('https://localhost:7286/api/Peminjaman').then(postPm => {
-
-//    // reshaping the array
-//    const pinjam = postPm.data.map(item=>({
-//     "idPeminjaman": item.idPeminjaman,
-//     "idRuangan": item.idRuangan,
-//     "namaPIC": item.namaPIC,
-//     "email": item.email,
-//     "noHp": item.noHp,
-//     "jumlahTamu": item.jumlahTamu,
-//     "status": item.status,
-//     "startTime": item.startTime,
-//     "endTime": item.endTime,
-//     "keperluan": item.keperluan,
-//     "detailKeperluan": item.detailKeperluan
-//    }))
-//    setPeminjaman(pinjam)
-//     // console.log(pinjam);
-//    })
-//   }
-//   fetchData()
-// }, [])
+   // reshaping the array
+   const pinjam = postPm.data.map(item=>({
+    "idPeminjaman": item.idPeminjaman,
+    "idRuangan": item.idRuangan,
+    "namaPIC": item.namaPIC,
+    "email": item.email,
+    "noHp": item.noHp,
+    "jumlahTamu": item.jumlahTamu,
+    "status": item.status,
+    "startTime": item.startTime,
+    "endTime": item.endTime,
+    "keperluan": item.keperluan,
+    "detailKeperluan": item.detailKeperluan
+   }))
+   setPeminjaman(pinjam)
+    // console.log(pinjam);
+   })
+  }
+  fetchData()
+}, [])
 
 const [startTime, setStartTime] = useState('');
 const [endTime, setEndTime] = useState('');
@@ -111,19 +131,19 @@ const handleSubmit = e => {
   // Prevent the default submit and page reload
   e.preventDefault()
   try {
-  // axios.post('https://localhost:7286/api/Peminjaman', {
-  //   idRuangan: ruang,
-  //   ticket: "",
-  //   namaPIC: location.state.namaPIC,
-  //   email: location.state.email,
-  //   noHp: location.state.noHp,
-  //   jumlahTamu: jumlahTamu,
-  //   startTime: startTime,
-  //   endTime: endTime,
-  //   keperluan: keperluan,
-  //   detailKeperluan: detailKeperluan,
-  //   status: status
-  // });
+  axios.post('https://1354-114-129-21-140.ngrok-free.app/api/Peminjaman', {
+    idRuangan: ruang,
+    ticket: "",
+    namaPIC: location.state.namaPIC,
+    email: location.state.email,
+    noHp: location.state.noHp,
+    jumlahTamu: jumlahTamu,
+    startTime: startTime,
+    endTime: endTime,
+    kepentingan: keperluan,
+    detailKepentingan: detailKeperluan,
+    status: status
+  });
   } catch (error) {
     if (location.state == null) {
       Swal.fire({  
@@ -211,7 +231,7 @@ const handleTime = event => {
         <Card id='cardregs' className='mb-3'>
           <Card.Body>
             <h2 className='text-center' id='foreg'>PILIH RUANG</h2>
-                
+                {console.log}
             <Form id='forms' action="" method="post" onSubmit={handleSubmit}>
                 <Form.Group md="4" controlId="validationCustom01">
                     <div className='row'>
@@ -219,10 +239,15 @@ const handleTime = event => {
                             <Form.Label className='mt-2'>Ruangan</Form.Label>
                             <Form.Select id='formgroup' onChange={handleChange} name="ruang" aria-label="Default select example" required>
                               <option value={0}>-- Pilih Ruangan --</option>
-                              <option value={1}>Ruang Collaboration</option>
+                              {data.map((d, index) => {
+                                return(
+                                  <option value={d.idRuangan} key={index}>{d.namaRuangan}</option>
+                                )
+                              })}
+                              {/* <option value={1}>Ruang Collaboration</option>
                               <option value={2}>Ruang Synergy</option>
                               <option value={3}>Ruang Harmonize</option>
-                              <option value={4}>Ruang Inspiring</option>
+                              <option value={4}>Ruang Inspiring</option> */}
                             </Form.Select>
                         </div>
                         <div className='col-5'>

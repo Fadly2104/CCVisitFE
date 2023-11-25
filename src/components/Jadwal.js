@@ -13,14 +13,18 @@ export default function Jadwal() {
 
   useEffect(() => {
     const fetchData = () =>{
-     axios.get('https://localhost:7286/api/Peminjaman').then(postData => {
+     axios.get('https://1354-114-129-21-140.ngrok-free.app/api/Peminjaman',{
+        headers:{
+            'ngrok-skip-browser-warning': true
+        }
+     }).then(postData => {
   
      // reshaping the array
      const customHeadings = postData.data.map(item=>({
         "idPeminjaman": item.idPeminjaman,
         "idRuangan": item.idRuangan,
         "ticket": item.ticket,
-        "namaRuangan": item.namaRuangan,
+        "namaRuangan": item.ruangan.namaRuangan,
         "namaPIC": item.namaPIC,
         "email": item.email,
         "noHp": item.noHp,
@@ -36,6 +40,14 @@ export default function Jadwal() {
     }
     fetchData()
   }, []) 
+
+// axios.get('https://e2b7-114-129-21-140.ngrok-free.app/api/Peminjaman',{
+//     headers:{
+//         'ngrok-skip-browser-warning': true
+//     },
+// }).then(res => console.log(res.data));
+
+
   
   const today = moment();
   const endOfWeek = today.endOf('week').format('yyyy-MM-DDT00:00');
