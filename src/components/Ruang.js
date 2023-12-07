@@ -28,22 +28,22 @@ export default function Tamu() {
 
   const [fas, setFas] = useState();
 
-  const fa = () => {
-    if (fas === 1) {
-      return <span>20 - 24 Orang</span>;
-    }
-    if (fas === 2) {
-      return <span>6 - 8 Orang</span>;
-    }
-    if (fas === 3) {
-      return <span>14 - 15 Orang</span>;
-    }
-    if (fas === 4) {
-      return <span>5 - 6 Orang</span>;
-    } else {
-      return <span><i>Silahkan memilih ruang terlebih dahulu</i></span>;
-    }
-  };
+  // const fa = () => {
+  //   if (fas === 14) {
+  //     return <span>20 - 24 Orang</span>;
+  //   }
+  //   if (fas === 15) {
+  //     return <span>6 - 8 Orang</span>;
+  //   }
+  //   if (fas === 16) {
+  //     return <span>14 - 15 Orang</span>;
+  //   }
+  //   if (fas === 17) {
+  //     return <span>5 - 6 Orang</span>;
+  //   } else {
+  //     return <span><i>Silahkan memilih ruang terlebih dahulu</i></span>;
+  //   }
+  // };
 
   const location = useLocation();
   // console.log(location.state);
@@ -60,10 +60,10 @@ export default function Tamu() {
     }); 
 }
 
-console.log(ruang);
+// console.log(ruang);
 useEffect(() => {
   const fetchData = () =>{
-   axios.get('https:/1354-114-129-21-140.ngrok-free.app/api/Ruangan', {
+   axios.get('https://ddf0-112-215-170-214.ngrok-free.app/api/Ruangan', {
     headers:{
       'ngrok-skip-browser-warning': true
     }
@@ -75,7 +75,7 @@ useEffect(() => {
      "namaRuangan": item.namaRuangan,
      "kapasitas": item.kapasitas,
      "availability": item.availability,
-     
+
    }))
    setData(customHeadings)
      
@@ -91,7 +91,7 @@ useEffect(() => {
   //   }).then(res => console.log(res.data))
 useEffect(() => {
   const fetchData = () =>{
-   axios.get('https://1354-114-129-21-140.ngrok-free.app/api/Peminjaman', {
+   axios.get('https://ddf0-112-215-170-214.ngrok-free.app/api/Peminjaman', {
     headers:{
       'ngrok-skip-browser-warning': true
     }
@@ -120,7 +120,7 @@ useEffect(() => {
 
 const [startTime, setStartTime] = useState('');
 const [endTime, setEndTime] = useState('');
-const [jumlahTamu, setJumlahTamu] = useState(1);
+const [jumlahTamu, setJumlahTamu] = useState();
 const status = 'On Request';
 
 const today = moment();
@@ -131,7 +131,7 @@ const handleSubmit = e => {
   // Prevent the default submit and page reload
   e.preventDefault()
   try {
-  axios.post('https://1354-114-129-21-140.ngrok-free.app/api/Peminjaman', {
+  axios.post('https://ddf0-112-215-170-214.ngrok-free.app/api/Peminjaman', {
     idRuangan: ruang,
     ticket: "",
     namaPIC: location.state.namaPIC,
@@ -161,41 +161,59 @@ const handleSubmit = e => {
 }
 
 const min = 1;
-const [max, setMax] = useState(1);
+const [max, setMax] = useState();
+const [kapasitas, SetKapasitas] = useState();
 
-const handleMinMax = event => {
-  const value = Math.max(min, Math.min(max, Number(event.target.value)));
-  setJumlahTamu(value)
-}
+window.addEventListener('click', function(event) {
+  // Mendapatkan elemen yang diklik
+  const clickedElement = event.target.value;
+  console.log(clickedElement);
+
+  data.forEach(o => {
+    if (clickedElement == o.idRuangan) {
+      SetKapasitas(parseInt(o.kapasitas))
+      setMax(parseInt(o.kapasitas))
+      setJumlahTamu(0)
+    }
+  });
+})
+const handleMinMax = (event) => {
+  const value = parseInt(event.target.value, 10);
+
+  // Pastikan nilai yang dimasukkan tidak melebihi kapasitas maksimal ruangan
+  const nilaiTerbatas = Math.min(Math.max(value, 0), kapasitas);
+
+  setJumlahTamu(nilaiTerbatas);
+};
 
 const   woo = data.map((dt) => dt.availability);
 // console.log(woo[0]);
 const [available, setAvailable] = useState(2);
 
-const handleChange = event => {
-  if (event.target.value == 1) {
-    setRuang(event.target.value);
-    setMax(24)
-    setFas(1)
-    setAvailable(woo[0])
-  } if (event.target.value == 2) {
-    setRuang(event.target.value);
-    setMax(8)
-    setFas(2)
-    setAvailable(woo[1])
-  } if (event.target.value == 3) {
-    setRuang(event.target.value);
-    setMax(15)
-    setFas(3)
-    setAvailable(woo[2])
-  } if (event.target.value == 4) {
-    setRuang(event.target.value);
-    setMax(6)
-    setFas(4)
-    setAvailable(woo[3])
-  }
-  // console.log(event.target.value);
-};
+// const handleChange = event => {
+//   if (event.target.value == 14) {
+//     setRuang(Number(event.target.value));
+//     setMax(24)
+//     setFas(1)
+//     setAvailable(woo[0])
+//   } if (event.target.value == 15) {
+//     setRuang(Number(event.target.value));
+//     setMax(8)
+//     setFas(2)
+//     setAvailable(woo[1])
+//   } if (event.target.value == 16) {
+//     setRuang(Number(event.target.value));
+//     setMax(15)
+//     setFas(3)
+//     setAvailable(woo[2])
+//   } if (event.target.value == 17) {
+//     setRuang(Number(event.target.value));
+//     setMax(6)
+//     setFas(4)
+//     setAvailable(woo[3])
+//   }
+//   console.log(Number(event.target.value));
+// };
 
 const handleKeperluan = event => {
   // console.log(event.target.value);
@@ -237,7 +255,7 @@ const handleTime = event => {
                     <div className='row'>
                         <div className='col-md-4'>
                             <Form.Label className='mt-2'>Ruangan</Form.Label>
-                            <Form.Select id='formgroup' onChange={handleChange} name="ruang" aria-label="Default select example" required>
+                            <Form.Select id='formgroup' name="ruang" aria-label="Default select example" required>
                               <option value={0}>-- Pilih Ruangan --</option>
                               {data.map((d, index) => {
                                 return(
@@ -267,14 +285,14 @@ const handleTime = event => {
                 <div className='row' id="kartu">
                   <div id='rows'>
                     <h6>Kapasitas:</h6>
-                    <ul className='custom-spacing'>{fa()}</ul>
+                    <ul className='custom-spacing'>{kapasitas}</ul>
                     <Form.Label className='mt-2'>Jumlah Tamu</Form.Label>
                     <div>
                     <Form.Control
-                      style={{width: 50, display: 'inline-block'}}
+                      style={{width: 60, display: 'inline-block'}}
                       required
                       type="number"
-                      placeholder="1"
+                      placeholder=""
                       value={jumlahTamu}
                       id='formgroup'
                       name="jumlahTamu"

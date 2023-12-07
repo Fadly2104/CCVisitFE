@@ -10,36 +10,8 @@
     max-width: 100%;
     height: auto;
     margin-right: -10px;
-  }
-
-  /* Media query untuk menyesuaikan gambar pada layar kecil hingga besar */
-  @media (min-width: 280px) {
-    .logonav {
-      max-width: 100px; /* Sesuaikan dengan kebutuhan Anda */
-    }
-    .logonav-1 {
-        max-width: 80px; /* Sesuaikan dengan kebutuhan Anda */
-    }
-  }
-  
-  @media (min-width: 768px) {
-    .logonav {
-      max-width: 150px; /* Sesuaikan dengan kebutuhan Anda */
-    }
-    .logonav-1 {
-        max-width: 130px; /* Sesuaikan dengan kebutuhan Anda */
-    }
-  }
-  
-  @media (min-width: 1024px) {
-    .logonav {
-      max-width: 200px; /* Sesuaikan dengan kebutuhan Anda */
-    }
-    .logonav-1 {
-        max-width: 165px; /* Sesuaikan dengan kebutuhan Anda */
-    }
-  }
-  
+  } 
+/* Header */
 
 
 /* Beranda */
@@ -47,36 +19,65 @@
     background-color: #D9D9D970;
 }
 
+#rowlp {
+    margin-top: 250px;
+}
+
 .TextBrn {
     text-shadow: 6px 4px 3px black;
+}
+
+#judullp {
+    color: white;
+    font-weight: 400; 
+    font-size: 40px;
+}
+
+#btnmar {
+    margin-top: 70px;
 }
 
 .BtnBrn {
     box-shadow: 1px 2px 15px black;
 }
 
-.Paragraf {
-    font-size: 20; 
-    font-weight: 400;
+#btnlp-1, #btnlp-2, #btnlp-3 {
+    width: 60%;
+    background-color: #FDCD04;
+}
+
+h3.plp {
+    color: black;
+    font-weight: 500; 
+    font-family: inherit;
+    font-size: 20px;
 }
 
 #bg2 {
+    background-size: 700px;
     background-image: 
-    -webkit-linear-gradient(right, rgb(255, 255, 255) 0%, rgba(0, 0, 0, 0) 59%, rgba(255, 255, 255, 0) 100%), 
-    -webkit-linear-gradient(bottom, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0) 59%, rgba(255, 255, 255, 0) 100%),
-    url('../assets/b2.jpg');
+      -webkit-linear-gradient(right, rgb(255, 255, 255) 0%, rgba(0, 0, 0, 0) 75%, rgba(255, 255, 255, 0) 100%), 
+      -webkit-linear-gradient(bottom, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 100%),
+      url('../assets/b2.jpg');
+    background-position: -10px -0px;
+    background-repeat: no-repeat;
+}
+
+.colbg2 {
+    margin-bottom: 500px;
 }
 
 #cardb3 {
     border-radius: 30px;
-    height: 600px;
+    height: 550px;
+    margin-bottom: 100px;
 }
 
 #cardb4 {
     border-radius: 30px;
-    margin-top: 120px;
     background-color: #D9D9D9;
     border-color: #D9D9D9;
+    margin-bottom: 100px;
 }
 
 .cardbo3 {
@@ -84,8 +85,8 @@
     border-radius: 30px;
 }
 
-#cartext {
-    font-size: 48;
+#Unite {
+    font-size: 30px;
 }
 
 #Carhed {
@@ -94,8 +95,20 @@
     background-color: #FDCD04;
     border-color: #FDCD04;
     font-family: fantasy;
-    top: 50px;
+    top: 60px;
     z-index: 1;
+    width: 350px;
+}
+
+#Carhed-2 {
+    align-items: center;
+    border-radius: 30px;
+    background-color: #FDCD04;
+    border-color: #FDCD04;
+    font-family: fantasy;
+    top: 60px;
+    z-index: 1;
+    width: 350px;
 }
 
 #Carhedcen {
@@ -104,24 +117,27 @@
     background-color: #FDCD04;
     border-color: #FDCD04;
     font-family: fantasy;
-    top: 200px;
+    top: 60px;
     z-index: 1;
+    width: 350px;
+    margin: 0 auto;
 }
 
 #ulca {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: lighter;
-    padding-top: 100px;
-    padding-right: 50px;
-    padding-left: 100px;
+    font-size: 25px;
+    padding-top: 90px;
+    padding-right: 45px;
+    padding-left: 75px;
 }
 
 #ctex {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: lighter;
-    padding-top: 100px;
-    padding-right: 50px;
-    padding-left: 100px;
+    padding-top: 80px;
+    padding-right: 75px;
+    padding-left: 75px;
     padding-bottom: 20px;
 }
 
@@ -174,7 +190,7 @@
 }
 
 #footer {
-    background-color: blackd;
+    background-color: black;
 }
 
 #footimg {
@@ -265,62 +281,11 @@
 .button {
     width: 100%;
     max-width: 200px;
-    margin: 0 auto; 
+    margin: 550px auto 0px; 
 }
 
-/* Gaya tambahan untuk membuat teks "Lanjutkan" responsif */
 h4 {
-    font-size: 20px; /* Ukuran font dasar */
-}
-
-/* Media query untuk mengubah ukuran font pada ukuran layar tertentu jika diperlukan */
-@media (min-width: 280px) {
-    #cardreg {
-        margin-top: 3rem;
-        margin-inline-start: 10px;
-        margin-inline-end: 10px;
-    }
-    .button {
-        max-width: 100%; /* Lebar maksimum pada ukuran layar kurang dari 720px */
-        margin-top: 20px; /* Tambahkan margin atas untuk menjaga jarak dengan elemen di atasnya */
-    }
-    h4 {
-        font-size: 16px; /* Ukuran font pada layar berukuran kecil (kurang dari 720px) */
-    }
-}
-
-/* Media query untuk ukuran layar 720px */
-@media (min-width: 768px) {
-    #cardreg {
-        margin-top: 3rem;
-        margin-inline-start: 20px;
-        margin-inline-end: 20px;
-    }
-    .button {
-        max-width: 150px; /* Lebar maksimum pada ukuran layar 720px atau lebih besar */
-    }
-    h4 {
-        font-size: 18px; /* Ukuran font pada layar berukuran kecil (720px atau lebih besar) */
-    }
-}
-
-
-@media (min-width: 980px) {
-    #form {
-        margin-inline-start: 50px;
-        margin-inline-end: 50px;
-    }
-    #cardreg {
-        margin-top: 1rem;
-        margin-inline-start: 200px;
-        margin-inline-end: 200px;
-    }
-    .button {
-        max-width: 200px; /* Lebar maksimum pada ukuran layar 1024px atau lebih besar */
-    }
-    h4 {
-        font-size: 24px; /* Ukuran font pada layar berukuran besar (desktop) */
-    }
+    font-size: 20px;
 }
 
 #foreg {
@@ -414,212 +379,7 @@ width: 150%; /* Sesuaikan dengan kebutuhan */
     margin-bottom: 0px; 
 }
 
-/* #calendar {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); Mengatur tiga kolom
-    gap: 10px; Memberikan jarak antara kolom
-} */
-/* 
-#calendar > div {
-    width: 100%;
-} */
 
-/* Media query untuk mengubah ukuran font pada ukuran layar tertentu jika diperlukan */
-@media (min-width: 280px) {
-    #kartu {
-        flex-direction: column;
-    }
-    .jarak-a {
-        margin-top: 1rem;
-    }
-    #cardregs {
-        margin-top: 2rem;
-        margin-inline-start: 5px;
-        margin-inline-end: 5px;
-    }
-    .col-5 {
-        width: 100%; /* Menyusutkan lebar kolom menjadi 100% pada layar yang lebih kecil */
-    }
-    .col-5 div {
-    text-align: center; /* Mengatur posisi teks menjadi tengah */
-    margin: 15px 0; /* Memberikan ruang di atas dan di bawah teks */
-    }
-    #tanda h3{
-        margin-top: 10px; 
-        margin-inline-start: 0px;
-        font-size: larger;
-    }
-    #rows {
-        /* 'col-9 mt-4' */
-        width: 75%;
-        margin-top: 0rem;
-        order: 1;
-    }
-    .custom-spacing {
-        white-space: normal; /* Mencegah teks pindah ke baris baru */
-        margin-left: -30px;
-        display: inline-block;
-    }
-    #perlu {
-        order: 2; /* Mengatur urutan elemen menjadi 2 */
-        text-align: left; /* Menetapkan teks ke kiri */
-        margin-top: 1rem; /* Memberikan margin atas */
-    }
-    #calendar > div {
-        width: calc(50% - 5px); /* Mengatur dua kolom, dengan margin di antara */
-    }
-    /* #calendar {
-        grid-template-columns: repeat(2, 1fr); Mengatur dua kolom saat layar lebih besar atau sama dengan 280px
-    } */
-}
-
-/* Media query untuk ukuran layar 720px */
-@media (min-width: 768px) and (max-width: 990px) {
-    #kartu {
-        flex-direction: row;
-        justify-content: space-between; /* Memberikan ruang di sekitar elemen */
-        align-items: center; /* Menengahkan elemen pada sumbu vertikal */
-    }
-    #cardregs {
-        margin-top: 1rem;
-        margin-inline-start: 20px;
-        margin-inline-end: 20px;
-    }
-    #tanda h3 {
-        margin-top: 0; /* Menghapus margin atas */
-        margin-inline-start: auto; /* Mengatur margin kiri menjadi otomatis */
-        margin-inline-end: 0; /* Menghapus margin kanan */
-        font-size: x-large;
-    }
-    #rows {
-        width: auto; /* Menetapkan lebar menjadi otomatis */
-        margin-top: 1.5rem;
-        order: 1;
-    }
-    .custom-spacing {
-        margin-left: 0px;
-    }
-    #perlu {
-        order: 2; /* Mengatur urutan elemen menjadi 2 (ke kanan) */
-        text-align: right; /* Menetapkan teks ke kanan */
-        margin-top: 0; /* Menghapus margin atas */
-        flex: 0 0 25%; /* Sesuaikan dengan kebutuhan lebar kolom Anda */
-    }
-    #tanda {
-        display: flex;
-        margin-top: 40px; 
-        margin-inline-start: 250px;
-    }
-    #calendar > div {
-        width: calc(35% - 5px); /* Mengatur dua kolom, dengan margin di antara */
-    }
-}
-
-
-@media (min-width: 991px) {
-    #kartu {
-        flex-direction: row;
-        justify-content: space-between; /* Memberikan ruang di sekitar elemen */
-        align-items: center; /* Menengahkan elemen pada sumbu vertikal */
-    }
-    #cardregs {
-        margin-top: 1rem;
-        margin-inline-start: 150px;
-        margin-inline-end: 150px;
-    }
-    #tanda h3 {
-        margin-top: 0; /* Menghapus margin atas */
-        margin-inline-start: auto; /* Mengatur margin kiri menjadi otomatis */
-        margin-inline-end: 0; /* Menghapus margin kanan */
-        font-size: x-large;
-    }
-    #rows {
-        width: auto; /* Menetapkan lebar menjadi otomatis */
-        margin-top: 1.5rem;
-        order: 1;
-    }
-    .custom-spacing {
-        margin-left: 0px;
-    }
-    #perlu {
-        order: 2; /* Mengatur urutan elemen menjadi 2 (ke kanan) */
-        text-align: right; /* Menetapkan teks ke kanan */
-        margin-top: 0; /* Menghapus margin atas */
-        flex: 0 0 25%; /* Sesuaikan dengan kebutuhan lebar kolom Anda */
-    }
-    #tanda {
-        display: flex;
-        margin-top: 40px; 
-        margin-inline-start: 230px;
-    }
-    #calendar > div {
-        width: calc(35% - 5px); /* Mengatur dua kolom, dengan margin di antara */
-    }
-}
-
-@media (min-width: 1200px) {
-    #kartu {
-        flex-direction: row;
-        justify-content: space-between; /* Memberikan ruang di sekitar elemen */
-        align-items: center; /* Menengahkan elemen pada sumbu vertikal */
-    }
-    #cardregs {
-        margin-top: 1rem;
-        margin-inline-start: 150px;
-        margin-inline-end: 150px;
-    }
-    #tanda h3 {
-        margin-top: 0; /* Menghapus margin atas */
-        margin-inline-start: auto; /* Mengatur margin kiri menjadi otomatis */
-        margin-inline-end: 0; /* Menghapus margin kanan */
-        font-size: x-large;
-    }
-    #rows {
-        width: auto; /* Menetapkan lebar menjadi otomatis */
-        margin-top: 1.5rem;
-        order: 1;
-    }
-    .custom-spacing {
-        margin-left: 0px;
-    }
-    #perlu {
-        order: 2; /* Mengatur urutan elemen menjadi 2 (ke kanan) */
-        text-align: right; /* Menetapkan teks ke kanan */
-        margin-top: 0; /* Menghapus margin atas */
-        flex: 0 0 25%; /* Sesuaikan dengan kebutuhan lebar kolom Anda */
-    }
-    #keperluan {
-        width: 180px;
-        background-color: #D9D9D9;
-        border-width: 1px;
-        border-color: black;
-    }
-    #tanda {
-        display: flex;
-        margin-top: 40px; 
-        margin-inline-start: 350px;
-    }
-    #calendar > div {
-        width: calc(25% - 5px); /* Mengatur dua kolom, dengan margin di antara */
-    }
-}
-
-
-/* @media (min-width: 980px) {
-    #form {
-        margin-inline-start: 50px;
-        margin-inline-end: 50px;
-    }
-    #cardreg-1 {
-        margin-top: 1rem;
-        margin-inline-start: 200px;
-        margin-inline-end: 200px;
-    }
-    #status {
-        margin-top: 40px; 
-        margin-inline-start: 170px;
-    }
-} */
 
 /* Ruang */
 
@@ -668,4 +428,607 @@ width: 150%; /* Sesuaikan dengan kebutuhan */
 
 /* /Jadwal */
 
+/* Media Query */
+/* Header */
+  @media (min-width: 280px) {
+    /* Header */
+    .logonav {
+      max-width: 100px; /* Sesuaikan dengan kebutuhan Anda */
+    }
+    .logonav-1 {
+        max-width: 80px; /* Sesuaikan dengan kebutuhan Anda */
+    }
+    /* Header */
+    /* Beranda */
+    #rowlp {
+        margin-top: 150px;
+    }
+    /* Beranda */
+    /* Registrasi */
+    #cardreg {
+        margin-top: 3rem;
+        margin-inline-start: 10px;
+        margin-inline-end: 10px;
+    }
+    .button {
+        max-width: 100%; /* Lebar maksimum pada ukuran layar kurang dari 720px */
+        margin-top: 20px; /* Tambahkan margin atas untuk menjaga jarak dengan elemen di atasnya */
+    }
+    h4 {
+        font-size: 16px; /* Ukuran font pada layar berukuran kecil (kurang dari 720px) */
+    }
+    /* Registrasi */
+    /* Ruang */
+    #kartu {
+        flex-direction: column;
+    }
+    .jarak-a {
+        margin-top: 1rem;
+    }
+    #cardregs {
+        margin-top: 2rem;
+        margin-inline-start: 5px;
+        margin-inline-end: 5px;
+    }
+    .col-5 {
+        width: 100%; /* Menyusutkan lebar kolom menjadi 100% pada layar yang lebih kecil */
+    }
+    .col-5 div {
+    text-align: center; /* Mengatur posisi teks menjadi tengah */
+    margin: 15px 0; /* Memberikan ruang di atas dan di bawah teks */
+    }
+    #tanda h3{
+        margin-top: 10px; 
+        margin-inline-start: 0px;
+        font-size: larger;
+    }
+    #rows {
+        /* 'col-9 mt-4' */
+        width: 75%;
+        margin-top: 0rem;
+        order: 1;
+    }
+    .custom-spacing {
+        white-space: normal; /* Mencegah teks pindah ke baris baru */
+        margin-left: -30px;
+        display: inline-block;
+    }
+    #perlu {
+        order: 2; /* Mengatur urutan elemen menjadi 2 */
+        text-align: left; /* Menetapkan teks ke kiri */
+        margin-top: 1rem; /* Memberikan margin atas */
+    }
+    #calendar > div {
+        width: calc(50% - 5px); /* Mengatur dua kolom, dengan margin di antara */
+    }
+    /* Ruang */
+  }
 
+
+  
+  @media (min-width:280px) and (max-width:576px) {
+    #bg2 {
+        background-size: 470px;
+          background-image: 
+          -webkit-linear-gradient(right, rgb(255, 255, 255) 0%, rgba(0, 0, 0, 0) 25%, rgba(255, 255, 255, 0) 100%),
+          -webkit-linear-gradient(bottom, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0) 80%, rgba(255, 255, 255, 0) 100%),
+          url('../assets/b2.jpg');
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        }
+
+        #Unite {
+            font-size: 25px;
+        }
+
+        #cardb3 {
+            height: 400px;
+            margin-bottom: 30px;
+        }
+        
+        #cardb4 {
+            border-radius: 20px;
+            background-color: #D9D9D9;
+            border-color: #D9D9D9;
+            margin-bottom: 100px;
+        }
+        
+        .cardbo3 {
+            background-color: #D9D9D9;
+            border-radius: 20px;
+        }
+        
+        #Carhed {
+            align-items: center;
+            border-radius: 30px;
+            background-color: #FDCD04;
+            border-color: #FDCD04;
+            font-family: fantasy;
+            top: 50px;
+            z-index: 1;
+            width: 200px;
+            margin: 0 auto;
+        }
+        
+        #Carhed-2 {
+            align-items: center;
+            border-radius: 30px;
+            background-color: #FDCD04;
+            border-color: #FDCD04;
+            font-family: fantasy;
+            top: 50px;
+            z-index: 1;
+            width: 200px;
+            margin: 0 auto;
+        }
+        
+        #Carhedcen {
+            align-items: center;
+            border-radius: 30px;
+            background-color: #FDCD04;
+            border-color: #FDCD04;
+            font-family: fantasy;
+            top: 50px;
+            z-index: 1;
+            width: 200px;
+        }
+        
+        #ulca {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight: lighter;
+            font-size: 16px;
+            padding-top: 60px;
+            padding-right: 15px;
+            padding-left: 25px;
+        }
+        
+        #ctex {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight: lighter;
+            font-size: 16px;
+            padding-top: 60px;
+            padding-right: 15px;
+            padding-left: 15px;
+            padding-bottom: 20px;
+        }
+  }
+
+  @media (min-width:576px) {
+    /* Beranda */
+    #rowlp {
+        margin-top: 200px;
+    }
+    #btnlp-1, #btnlp-2, #btnlp-3 {
+        width: 50%;
+        background-color: #FDCD04;
+    }
+
+    
+    /* Beranda */
+  }
+
+  @media (min-width:576px) and (max-width:768px){
+    #bg2 {
+        background-size: 470px;
+          background-image: 
+          -webkit-linear-gradient(right, rgb(255, 255, 255) 0%, rgba(0, 0, 0, 0) 25%, rgba(255, 255, 255, 0) 100%),
+          -webkit-linear-gradient(bottom, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0) 100%),
+          url('../assets/b2.jpg');
+        background-repeat: no-repeat;
+        background-position: 0 0px;
+        }
+
+        #cardb3 {
+            height: 500px;
+            margin-bottom: 50px;
+        }
+
+        #Carhed {
+            top: 50px;
+            width: 250px;
+            margin: 0 auto;
+        }
+        
+        #Carhed-2 {
+            top: 50px;
+            width: 250px;
+            margin: 0 auto;
+        }
+        #Carhedcen {
+            top: 50px;
+            width: 250px;
+        }
+        #ulca {
+            padding-top: 70px;
+            padding-right: 15px;
+            padding-left: 45px;
+        }
+        
+        #ctex {
+            padding-top: 60px;
+            padding-right: 15px;
+            padding-left: 15px;
+            padding-bottom: 20px;
+        }
+  }
+
+  @media (min-width: 768px) {
+    /* Header */
+    .logonav {
+      max-width: 150px; /* Sesuaikan dengan kebutuhan Anda */
+    }
+    .logonav-1 {
+        max-width: 130px; /* Sesuaikan dengan kebutuhan Anda */
+    }
+    /* Header */
+    /* Beranda */
+    #rowlp {
+        margin-top: 250px;
+    }
+    #btnlp-1, #btnlp-2, #btnlp-3 {
+        width: 80%;
+        background-color: #FDCD04;
+    }
+    
+    /* Beranda */
+    /* Registrasi */
+    #cardreg {
+        margin-top: 3rem;
+        margin-inline-start: 20px;
+        margin-inline-end: 20px;
+    }
+    .button {
+        max-width: 150px; /* Lebar maksimum pada ukuran layar 720px atau lebih besar */
+    }
+    h4 {
+        font-size: 18px; /* Ukuran font pada layar berukuran kecil (720px atau lebih besar) */
+    }
+    /* Registrasi */
+  }
+  
+  @media (min-width: 1024px) {
+    .logonav {
+      max-width: 200px; /* Sesuaikan dengan kebutuhan Anda */
+    }
+    .logonav-1 {
+        max-width: 165px; /* Sesuaikan dengan kebutuhan Anda */
+    }
+  }
+/* Header */
+
+/* Beranda */
+
+/* Beranda */
+
+/* Registrasi */
+@media (min-width: 980px) {
+    #form {
+        margin-inline-start: 50px;
+        margin-inline-end: 50px;
+    }
+    #cardreg {
+        margin-top: 1rem;
+        margin-inline-start: 200px;
+        margin-inline-end: 200px;
+    }
+    .button {
+        max-width: 200px; /* Lebar maksimum pada ukuran layar 1024px atau lebih besar */
+    }
+    h4 {
+        font-size: 24px; /* Ukuran font pada layar berukuran besar (desktop) */
+    }
+}
+/* Registrasi */
+
+/* Ruang */
+/* Media query untuk ukuran layar 720px */
+@media (min-width: 768px) and (max-width: 992px) {
+    #kartu {
+        flex-direction: row;
+        justify-content: space-between; /* Memberikan ruang di sekitar elemen */
+        align-items: center; /* Menengahkan elemen pada sumbu vertikal */
+    }
+    #cardregs {
+        margin-top: 1rem;
+        margin-inline-start: 20px;
+        margin-inline-end: 20px;
+    }
+    #tanda h3 {
+        margin-top: 0; /* Menghapus margin atas */
+        margin-inline-start: auto; /* Mengatur margin kiri menjadi otomatis */
+        margin-inline-end: 0; /* Menghapus margin kanan */
+        font-size: x-large;
+    }
+    #rows {
+        width: auto; /* Menetapkan lebar menjadi otomatis */
+        margin-top: 1.5rem;
+        order: 1;
+    }
+    .custom-spacing {
+        margin-left: 0px;
+    }
+    #perlu {
+        order: 2; /* Mengatur urutan elemen menjadi 2 (ke kanan) */
+        text-align: right; /* Menetapkan teks ke kanan */
+        margin-top: 0; /* Menghapus margin atas */
+        flex: 0 0 25%; /* Sesuaikan dengan kebutuhan lebar kolom Anda */
+    }
+    #tanda {
+        display: flex;
+        margin-top: 40px; 
+        margin-inline-start: 250px;
+    }
+    #calendar > div {
+        width: calc(35% - 5px); /* Mengatur dua kolom, dengan margin di antara */
+    }
+    /* Beranda */
+    #judullp {
+        font-size: 40px
+    } 
+    #cardb3 {
+        border-radius: 30px;
+        height: 500px;
+        margin-bottom: 100px;
+    }
+
+    #Carhed {
+        top: 45px;
+        width: 350px;
+        margin: 0 auto;
+    }
+    
+    #Carhed-2 {
+        top: 45px;
+        width: 350px;
+        margin: 0 auto;
+    }
+    #Carhedcen {
+        top: 45px;
+        width: 350px;
+    }
+    
+    #ctex {
+        padding-top: 60px;
+    }
+    /* Beranda */
+}
+
+@media (min-width: 992px) {
+    #kartu {
+        flex-direction: row;
+        justify-content: space-between; /* Memberikan ruang di sekitar elemen */
+        align-items: center; /* Menengahkan elemen pada sumbu vertikal */
+    }
+    #cardregs {
+        margin-top: 1rem;
+        margin-inline-start: 150px;
+        margin-inline-end: 150px;
+    }
+    #tanda h3 {
+        margin-top: 0; /* Menghapus margin atas */
+        margin-inline-start: auto; /* Mengatur margin kiri menjadi otomatis */
+        margin-inline-end: 0; /* Menghapus margin kanan */
+        font-size: x-large;
+    }
+    #rows {
+        width: auto; /* Menetapkan lebar menjadi otomatis */
+        margin-top: 1.5rem;
+        order: 1;
+    }
+    .custom-spacing {
+        margin-left: 0px;
+    }
+    #perlu {
+        order: 2; /* Mengatur urutan elemen menjadi 2 (ke kanan) */
+        text-align: right; /* Menetapkan teks ke kanan */
+        margin-top: 0; /* Menghapus margin atas */
+        flex: 0 0 25%; /* Sesuaikan dengan kebutuhan lebar kolom Anda */
+    }
+    #tanda {
+        display: flex;
+        margin-top: 40px; 
+        margin-inline-start: 230px;
+    }
+    #calendar > div {
+        width: calc(35% - 5px); /* Mengatur dua kolom, dengan margin di antara */
+    }
+    /* Beranda */
+    #judullp {
+        font-size: 50px
+    } 
+    
+    #cardb3.cardb3v2 {
+        border-radius: 30px;
+        height: 575px;
+        margin-bottom: 50px;
+    }
+    
+    #Carhed {
+        top: 45px;
+        width: 350px;
+        margin-inline-start: 55px;
+        }
+    
+    #Carhed-2 {
+        top: 45px;
+        width: 350px;
+        margin-inline-start: 55px;
+    }
+    
+    #Carhedcen {
+        top: 45px;
+        width: 350px;
+        margin: 0 auto;
+    }
+    
+    #ulca {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-weight: lighter;
+        font-size: 25px;
+        padding-top: 55px;
+        padding-right: 45px;
+        padding-left: 75px;
+    }
+    
+    #ctex {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-weight: lighter;
+        padding-top: 60px;
+        padding-right: 75px;
+        padding-left: 75px;
+        padding-bottom: 20px;
+    }
+    /* Beranda */
+}
+
+@media (min-width: 1200px) {
+    #kartu {
+        flex-direction: row;
+        justify-content: space-between; /* Memberikan ruang di sekitar elemen */
+        align-items: center; /* Menengahkan elemen pada sumbu vertikal */
+    }
+    #cardregs {
+        margin-top: 1rem;
+        margin-inline-start: 150px;
+        margin-inline-end: 150px;
+    }
+    #tanda h3 {
+        margin-top: 0; /* Menghapus margin atas */
+        margin-inline-start: 200%; /* Mengatur margin kiri menjadi otomatis */
+        margin-inline-end: 0; /* Menghapus margin kanan */
+        font-size: x-large;
+    }
+    #rows {
+        width: auto; /* Menetapkan lebar menjadi otomatis */
+        margin-top: 1.5rem;
+        order: 1;
+    }
+    .custom-spacing {
+        margin-left: 0px;
+    }
+    #perlu {
+        order: 2; /* Mengatur urutan elemen menjadi 2 (ke kanan) */
+        text-align: right; /* Menetapkan teks ke kanan */
+        margin-top: 0; /* Menghapus margin atas */
+        flex: 0 0 25%; /* Sesuaikan dengan kebutuhan lebar kolom Anda */
+    }
+    #keperluan {
+        width: 100%;
+        background-color: #D9D9D9;
+        border-width: 1px;
+        border-color: black;
+    }
+    #tanda {
+        display: flex;
+        margin-top: 40px; 
+        margin-inline-start: 350px;
+    }
+    #calendar > div {
+        width: calc(25% - 5px); /* Mengatur dua kolom, dengan margin di antara */
+    }
+    /* Beranda */
+    #judullp {
+        font-size: 60px
+    } 
+    #btnlp-1, #btnlp-2, #btnlp-3 {
+        width: 60%;
+        background-color: #FDCD04;
+    }
+
+    #cardb3 {
+        margin-bottom: 25px;
+    }
+
+    #cardb3.cardb3v2 {
+        border-radius: 30px;
+        height: 552px;
+        margin-bottom: 50px;
+    }
+    
+    #Carhed {
+        top: 45px;
+        width: 350px;
+        margin-inline-start: 100px;
+    }
+    
+    #Carhed-2 {
+        top: 45px;
+        width: 350px;
+        margin-inline-start: 100px;
+    }
+    
+    #Carhedcen {
+        top: 45px;
+        width: 350px;
+        margin: 0 auto;
+    }
+    
+    #ulca {
+        padding-top: 75px;
+        padding-right: 45px;
+        padding-left: 75px;
+    }
+    
+    #ctex {
+        padding-top: 60px;
+        padding-right: 75px;
+        padding-left: 75px;
+        padding-bottom: 20px;
+    }
+    /* Beranda */  
+}
+/* Ruang */
+
+
+
+@media (max-width: 1200px) {
+    #bg2 {
+    background-size: cover;
+      background-image: 
+      /* -webkit-linear-gradient(right, rgb(255, 255, 255) 0%, rgba(0, 0, 0, 0) 25%, rgba(255, 255, 255, 0) 100%), */
+      -webkit-linear-gradient(bottom, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0) 90%, rgba(255, 255, 255, 0) 100%),
+      url('../assets/b2.jpg');
+    background-repeat: no-repeat;
+    background-position: 0 0px;
+    }
+  }
+
+@media (min-width: 1400px) {
+    #cardb3 {
+        margin-bottom: 25px;
+    }
+
+    #cardb3.cardb3v2 {
+        border-radius: 30px;
+        height: 552px;
+        margin-bottom: 50px;
+    }
+    
+    #Carhed {
+        top: 45px;
+        width: 350px;
+        margin-inline-start: 145px;
+    }
+    
+    #Carhed-2 {
+        top: 45px;
+        width: 350px;
+        margin-inline-start: 145px;
+    }
+    
+    #Carhedcen {
+        top: 45px;
+        width: 350px;
+        margin: 0 auto;
+    }
+    
+    #ulca {
+        padding-top: 75px;
+        padding-right: 45px;
+        padding-left: 75px;
+    }
+    
+    #ctex {
+        padding-top: 60px;
+    }
+}

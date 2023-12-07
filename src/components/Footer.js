@@ -11,7 +11,7 @@ import { RxLinkedinLogo } from 'react-icons/rx';
 export default function Footer() {
     return (
         <>
-            <div className="container" id="footer">
+            <div className="container">
                 <div className="row">
                     <div className="col-4">
                         <img src={Fut} id="footimg"></img>
