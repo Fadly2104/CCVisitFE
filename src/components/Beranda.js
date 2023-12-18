@@ -15,12 +15,51 @@ import CC5 from '../assets/cc5.jpg';
 import CC6 from '../assets/cc6.jpg';
 import Scroll from './Scroll';
 
+//
 export default function Beranda() {
-    const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(0);
 
-    const handleSelect = (selectedIndex) => {
-      setIndex(selectedIndex);
-    };
+  const handleSelect = (selectedIndex) => {
+    setIndex(selectedIndex);
+  };
+
+  function getNumberOfColumns() {
+    const screenWidth = window.innerWidth;
+  
+    if (screenWidth >= 768 && screenWidth < 1400) {
+      return 3;
+    } else if (screenWidth >= 576 && screenWidth < 768) {
+      return 2;
+    } else if (screenWidth >= 280 && screenWidth < 576) {
+      return 1;
+    } else {
+      return 3; // Jumlah default kolom, bisa disesuaikan
+    }
+  }
+  
+  function getImagesForSlide(slideIndex, colIndex) {
+    const images = [CC1, CC2, CC3, CC4, CC5, CC6];
+    const itemsPerSlide = getNumberOfColumns();
+  
+    const startIndex = (slideIndex * itemsPerSlide) + colIndex;
+    const endIndex = startIndex + 1;
+  
+    return images.slice(startIndex, endIndex);
+  }
+
+  function getNumberOfIndicators() {
+    const screenWidth = window.innerWidth;
+  
+    if (screenWidth >= 768 && screenWidth < 1200) {
+      return 2;
+    } else if (screenWidth >= 576 && screenWidth < 768) {
+      return 3;
+    } else if (screenWidth >= 280 && screenWidth < 576) {
+      return 6;
+    } else {
+      return 2; // Jumlah default indikator, bisa disesuaikan
+    }
+  }    
 
   return (
     <>
@@ -144,60 +183,76 @@ export default function Beranda() {
       </Col>
     </Row>
 
-            {/* <div className='row'>
-                <Card id='Carhedcen' className='mx-auto' style={{width: 400}}>
-                    <Card.Body>
-                        <h1>MILESTONE</h1>
-                    </Card.Body>
-                </Card>
+    <Row>
+      <Col md={12}>
+        <Card id='Carhedcen'>
+            <Card.Body>
+                <h1 id='Unite'>MILESTONE</h1>
+            </Card.Body>
+        </Card>
 
-                <Card id='cardb4'>
-                    <Card.Body>
-                        <div id='blockchart'>
-                            <Chart />
-                        </div>
-                        <div className='row'>
-                            <div className='col-2' id='chadesc1'>
-                                <h6>United Tractors Command Center dibuat</h6>
-                            </div>
-                            <div className='col-2' id='chadesc2'>
-                                <h6>Menguatkan pondasi operasi dari Command Center</h6>
-                            </div>
-                            <div className='col-2' id='chadesc3'>
-                                <h6>Memperkuat operasi Command Center untuk mencakup banyak klien dan memuaskannya</h6>
-                            </div>
-                            <div className='col-2' id='chadesc4'>
-                                <h6>Fokus pada impact dan merancang mode kerja baru</h6>
-                            </div>
-                            <div className='col-2' id='chadesc5'>
-                                <h6>Menaikan performa dan impact lewat LOCOMOTIVE</h6>
-                            </div>
-                            <div className='col-2'></div>
-                        </div>
-                    </Card.Body>
-                </Card>
-            </div> */}
+        <Card id='cardb4'>
+                <div id='blockchart'>
+                    <Chart />
+                </div>
+              <Card.Body>
+                <Row>
+                    <Col sm={2} id='chadesc1'>
+                      <h5 className='trial'>2019</h5>
+                        <h6 className='chadesft'>United Tractors Command Center dibuat</h6>
+                    </Col>
+                    <Col sm={2} id='chadesc2'>
+                      <h5 className='trial'>2020</h5>
+                        <h6 className='chadesft'>Menguatkan pondasi operasi dari Command Center</h6>
+                    </Col>
+                    <Col sm={2} id='chadesc3'>
+                      <h5 className='trial'>2021</h5>
+                        <h6 className='chadesft'>Memperkuat operasi Command Center untuk mencakup banyak klien dan memuaskannya</h6>
+                    </Col>
+                    <Col sm={2} id='chadesc4'>
+                      <h5 className='trial'>2022</h5>
+                        <h6 className='chadesft'>Fokus pada impact dan merancang mode kerja baru</h6>
+                    </Col>
+                    <Col sm={2} id='chadesc5'>
+                      <h5 className='trial'>2023</h5>
+                        <h6 className='chadesft'>Menaikan performa dan impact lewat LOCOMOTIVE</h6>
+                    </Col>
+                    <Col sm={2}></Col>
+                </Row>
+            </Card.Body>
+        </Card>
+      </Col>
+    </Row>
 
-            {/* <div className='row' id='galeri'>
-                <Carousel id='carousel' data-bs-theme="dark" activeIndex={index} onSelect={handleSelect}>
-                  <Carousel.Item>
-                    <img id='caroimg' src={CC1} text="First slide" />
-                    <img id='caroimg' src={CC2} text="Second slide" />
-                    <img id='caroimg' src={CC3} text="Third slide" />
-                  </Carousel.Item>
-                  <Carousel.Item>
-                    <img id='caroimg' src={CC4} text="Second slide" />
-                    <img id='caroimg' src={CC5} text="Second slide" />
-                    <img id='caroimg' src={CC6} text="Second slide" />
-                  </Carousel.Item>
-                </Carousel>
-            </div> */}
+      <Row id='galeri'>
+      <Carousel
+        id='carousel'
+        data-bs-theme="dark"
+        activeIndex={index}
+        onSelect={handleSelect}
+        indicators={window.innerWidth >= 768}
+      >
+        {[...Array(getNumberOfIndicators())].map((_, i) => (
+          <Carousel.Item key={i}>
+            <Row>
+              {[...Array(getNumberOfColumns())].map((_, colIndex) => (
+                <Col key={colIndex}>
+                  {getImagesForSlide(i, colIndex).map((img, imgIndex) => (
+                    <img key={imgIndex} id='caroimg' src={img} alt={`Slide ${i + 1}`} />
+                  ))}
+                </Col>
+              ))}
+            </Row>
+          </Carousel.Item>
+        ))}
+      </Carousel>
+    </Row>
+    
+  </Container>
 
-        </Container>
-
-    {/* <div id='footer'>
+    <div id='footer'>
         <Footer />
-    </div> */}
+    </div>
 
     </div>
     </>

@@ -12,38 +12,15 @@ export default function Tamu() {
 
   const [data, setData] = useState([]);
 
-  data.map((e, index) => {
-    return{
-
-    }
-  });
-
   const [peminjaman, setPeminjaman] = useState([]);
 
-  const [ruang, setRuang] = useState(1);
+  const [ruang, setRuang] = useState();
 
   const [keperluan, setKeperluan] = useState('Meeting');
 
   const [detailKeperluan, setDetailKeperluan] = useState('');
 
-  const [fas, setFas] = useState();
-
-  // const fa = () => {
-  //   if (fas === 14) {
-  //     return <span>20 - 24 Orang</span>;
-  //   }
-  //   if (fas === 15) {
-  //     return <span>6 - 8 Orang</span>;
-  //   }
-  //   if (fas === 16) {
-  //     return <span>14 - 15 Orang</span>;
-  //   }
-  //   if (fas === 17) {
-  //     return <span>5 - 6 Orang</span>;
-  //   } else {
-  //     return <span><i>Silahkan memilih ruang terlebih dahulu</i></span>;
-  //   }
-  // };
+  // const [fas, setFas] = useState();
 
   const location = useLocation();
   // console.log(location.state);
@@ -63,7 +40,7 @@ export default function Tamu() {
 // console.log(ruang);
 useEffect(() => {
   const fetchData = () =>{
-   axios.get('https://ddf0-112-215-170-214.ngrok-free.app/api/Ruangan', {
+   axios.get('https://39ff-114-129-21-140.ngrok-free.app/api/Ruangan', {
     headers:{
       'ngrok-skip-browser-warning': true
     }
@@ -91,7 +68,7 @@ useEffect(() => {
   //   }).then(res => console.log(res.data))
 useEffect(() => {
   const fetchData = () =>{
-   axios.get('https://ddf0-112-215-170-214.ngrok-free.app/api/Peminjaman', {
+   axios.get('https://39ff-114-129-21-140.ngrok-free.app/api/Peminjaman', {
     headers:{
       'ngrok-skip-browser-warning': true
     }
@@ -131,7 +108,7 @@ const handleSubmit = e => {
   // Prevent the default submit and page reload
   e.preventDefault()
   try {
-  axios.post('https://ddf0-112-215-170-214.ngrok-free.app/api/Peminjaman', {
+  axios.post('https://39ff-114-129-21-140.ngrok-free.app/api/Peminjaman', {
     idRuangan: ruang,
     ticket: "",
     namaPIC: location.state.namaPIC,
@@ -160,7 +137,7 @@ const handleSubmit = e => {
   
 }
 
-const min = 1;
+// const min = 1;
 const [max, setMax] = useState();
 const [kapasitas, SetKapasitas] = useState();
 
@@ -178,12 +155,17 @@ window.addEventListener('click', function(event) {
   });
 })
 const handleMinMax = (event) => {
+  
+  data.map((e) => {
+    if (event.target.value == e.idRuangan) {
+      setMax(e.kapasitas)
+    }
+  })
   const value = parseInt(event.target.value, 10);
-
+console.log(event)
   // Pastikan nilai yang dimasukkan tidak melebihi kapasitas maksimal ruangan
   const nilaiTerbatas = Math.min(Math.max(value, 0), kapasitas);
-
-  setJumlahTamu(nilaiTerbatas);
+  setJumlahTamu(isNaN(nilaiTerbatas) ? 0 : nilaiTerbatas);
 };
 
 const   woo = data.map((dt) => dt.availability);
@@ -262,10 +244,6 @@ const handleTime = event => {
                                   <option value={d.idRuangan} key={index}>{d.namaRuangan}</option>
                                 )
                               })}
-                              {/* <option value={1}>Ruang Collaboration</option>
-                              <option value={2}>Ruang Synergy</option>
-                              <option value={3}>Ruang Harmonize</option>
-                              <option value={4}>Ruang Inspiring</option> */}
                             </Form.Select>
                         </div>
                         <div className='col-5'>
@@ -289,7 +267,7 @@ const handleTime = event => {
                     <Form.Label className='mt-2'>Jumlah Tamu</Form.Label>
                     <div>
                     <Form.Control
-                      style={{width: 60, display: 'inline-block'}}
+                      style={{width: 42, display: 'inline-block'}}
                       required
                       type="number"
                       placeholder=""
@@ -375,7 +353,7 @@ const handleTime = event => {
                 <div className='button text-center' style={{marginTop: 35}}>
                     {(function() {
                       if (available === true) {
-                        return <Button className="BtnBrn" variant='dark' style={{backgroundColor: '#FDCD04', borderRadius: 30}} type="submit" onClick={handleClick}>
+                        return <Button className="BtnBrn" variant='dark' style={{backgroundColor: '#FDCD04', borderRadius: 30}} type="submit" onClick={handleSubmit}>
                                   <h3 style={{color: 'black', fontWeight: 700, fontFamily: 'inherit'}}>SUBMIT</h3>
                               </Button>
                       } else {

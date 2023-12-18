@@ -151,44 +151,26 @@ h3.plp {
     font-weight: 700;
 }
 
-#chadesc1 {
-    margin-inline-start: 50px;
-}
-
-#chadesc2 {
-    margin-inline-start: 25px;
-}
-
-#chadesc3 {
-    margin-inline-start: 25px;
-}
-
-#chadesc4 {
-    margin-inline-start: 25px;
-}
-
-#chadesc5 {
-    margin-inline-start: 28px;
+.trial {
+    /* visibility: hidden; */
+    /* display: none; */
+    text-align: center;
+    font-style: oblique;
+    text-decoration: underline;
+    text-decoration-color: #FDCD04;
 }
 
 #galeri {
-    margin-top: 100px;
+    margin-top: 25px;
     margin-bottom: 100px;
 }
 
 #caroimg {
-    width: 280px;
-    margin-inline: 6px;
     border-radius: 20px;
 }
 
-#carousel {
-    padding-top: 30px;
-    padding-bottom: 50px;
-    padding-inline-start: 220px;
-    padding-inline-end: 220px;
-}
 
+/* Footer */
 #footer {
     background-color: black;
 }
@@ -203,7 +185,26 @@ h3.plp {
     font-family: fantasy;
     font-weight: 100;
     margin-top: 50px;
+    font-size: 20px;
 }
+
+#fots {
+    font-family: fantasy;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+#iconf {
+    margin-top: 270px;
+}
+
+#hak {
+    font-family: fantasy;
+    color: #ffffff;
+    margin-top: 300px;
+    font-size: 18px;
+}
+/* Footer */
 /* /Beranda */
 
 
@@ -213,7 +214,7 @@ h3.plp {
   }
   .icon-position{
     position: fixed;
-    bottom: 40px;
+    bottom: 80px;
     right: 25px;
     z-index: 20;
   }
@@ -379,7 +380,11 @@ width: 150%; /* Sesuaikan dengan kebutuhan */
     margin-bottom: 0px; 
 }
 
-
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
 /* Ruang */
 
@@ -530,7 +535,7 @@ width: 150%; /* Sesuaikan dengan kebutuhan */
             border-radius: 20px;
             background-color: #D9D9D9;
             border-color: #D9D9D9;
-            margin-bottom: 100px;
+            margin-bottom: 30px;
         }
         
         .cardbo3 {
@@ -591,6 +596,56 @@ width: 150%; /* Sesuaikan dengan kebutuhan */
             padding-left: 15px;
             padding-bottom: 20px;
         }
+        #caroimg {
+            width: 95%; /* 1 gambar dalam 1 baris */
+            margin-inline: 10px;
+        }
+        #carousel {
+            padding-inline-start: 50px;
+            padding-inline-end: 50px;
+        }
+        #blockchart {
+            margin-top: 65px;
+            width: 100%;
+        }
+        .chadesft {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight: lighter;
+            padding-bottom: 15px;
+            font-size: 16px;
+            text-align: center;
+            font-weight: 500;
+        }
+        /* Footer */
+        #footimg {
+            width: 225px;
+            margin-top: 40px;
+        }
+        /* Footer */
+  }
+
+  @media (min-width:280px) and (max-width:768px) {
+    #fontkuning {
+        color: #FDCD04;   
+        font-family: fantasy;
+        font-weight: 100;
+        margin-top: 50px;
+        font-size: 16px;
+    }
+    #fots {
+        font-family: fantasy;
+        color: #ffffff;
+        font-size: 12px;
+    }
+    #iconf {
+        margin: 20px auto 0;
+    }
+    #hak {
+        font-family: fantasy;
+        color: #ffffff;
+        margin-top: 30px;
+        font-size: 12px;
+    }  
   }
 
   @media (min-width:576px) {
@@ -623,6 +678,10 @@ width: 150%; /* Sesuaikan dengan kebutuhan */
             margin-bottom: 50px;
         }
 
+        #cardb4 {
+            margin-bottom: 50px;
+        }
+
         #Carhed {
             top: 50px;
             width: 250px;
@@ -650,6 +709,53 @@ width: 150%; /* Sesuaikan dengan kebutuhan */
             padding-left: 15px;
             padding-bottom: 20px;
         }
+        #caroimg {
+            width: 95%; /* 2 gambar dalam 1 baris */
+            margin-inline: 5px;
+        }
+        #carousel {
+            padding-inline-start: 40px;
+            padding-inline-end: 40px;
+        }
+        a.carousel-control-prev {
+            left: -15px
+        }
+        a.carousel-control-next {
+            right: -15px
+        }
+        #chadesc1 {
+            margin-inline-start: 20px;
+        }
+    
+        #chadesc2 {
+            margin-inline-start: 10px;
+        }
+    
+        #chadesc3 {
+            margin-inline-start: 10px;
+        }
+    
+        #chadesc4 {
+            margin-inline-start: 10px;
+        }
+    
+        #chadesc5 {
+            margin-inline-start: 9px;
+        }
+        .chadesft {
+            padding-bottom: 15px;
+            font-size: 8px;
+            text-align: center;
+            font-weight: 700;
+        }
+        #blockchart {
+            margin-top: 25px;
+            width: 100%;
+        }
+        .trial {
+            /* visibility: hidden; */
+            display: none;
+        }
   }
 
   @media (min-width: 768px) {
@@ -669,7 +775,60 @@ width: 150%; /* Sesuaikan dengan kebutuhan */
         width: 80%;
         background-color: #FDCD04;
     }
-    
+    #caroimg {
+        width: 90%; /* 3 gambar dalam 1 baris */
+        margin-inline: 10px;
+    }
+    #carousel {
+        padding-inline-start: 50px;
+        padding-inline-end: 50px;
+    }
+    .carousel-indicators {
+        top: 110px;
+    }
+    .carousel-indicators>
+        button[type=button] {
+            width: 50px;
+            height: 3px;
+        }
+    a.carousel-control-prev {
+        left: -20px
+    }
+    a.carousel-control-next {
+        right: -20px
+    }
+    #chadesc1 {
+        margin-inline-start: 18px;
+    }
+
+    #chadesc2 {
+        margin-inline-start: 20px;
+    }
+
+    #chadesc3 {
+        margin-inline-start: 17px;
+    }
+
+    #chadesc4 {
+        margin-inline-start: 18px;
+    }
+
+    #chadesc5 {
+        margin-inline-start: 18px;
+    }
+    .chadesft {
+        padding-bottom: 25px;
+        font-size: 12px;
+        text-align: center;
+    }
+    #blockchart {
+        margin-top: 65px;
+        width: 100%;
+    }
+    .trial {
+        /* visibility: hidden; */
+        display: none;
+    }
     /* Beranda */
     /* Registrasi */
     #cardreg {
@@ -684,8 +843,19 @@ width: 150%; /* Sesuaikan dengan kebutuhan */
         font-size: 18px; /* Ukuran font pada layar berukuran kecil (720px atau lebih besar) */
     }
     /* Registrasi */
+    
+    /* Footer */
   }
   
+@media (min-width: 768px) and (max-width: 992px) {
+    #hak {
+        font-family: fantasy;
+        color: #ffffff;
+        margin-top: 300px;
+        font-size: 12px;
+    }
+}
+
   @media (min-width: 1024px) {
     .logonav {
       max-width: 200px; /* Sesuaikan dengan kebutuhan Anda */
@@ -790,6 +960,7 @@ width: 150%; /* Sesuaikan dengan kebutuhan */
     #ctex {
         padding-top: 60px;
     }
+    
     /* Beranda */
 }
 
@@ -871,17 +1042,72 @@ width: 150%; /* Sesuaikan dengan kebutuhan */
     }
     
     #ctex {
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        font-weight: lighter;
         padding-top: 60px;
         padding-right: 75px;
         padding-left: 75px;
         padding-bottom: 20px;
     }
+    #caroimg {
+        width: 90%; /* 3 gambar dalam 1 baris */
+        margin-inline: 15px;
+    }
+    #carousel {
+        padding-inline-start: 75px;
+        padding-inline-end: 75px;
+    }
+    .carousel-indicators {
+        top: 160px;
+    }
+    .carousel-indicators>
+        button[type=button] {
+            width: 80px;
+            height: 3px;
+    }a.carousel-control-prev {
+        left: -15px
+    }
+    a.carousel-control-next {
+        right: -15px
+    }    
+    #chadesc1 {
+        margin-inline-start: 40px;
+    }
+
+    #chadesc2 {
+        margin-inline-start: 15px;
+    }
+
+    #chadesc3 {
+        margin-inline-start: 18px;
+    }
+
+    #chadesc4 {
+        margin-inline-start: 18px;
+    }
+
+    #chadesc5 {
+        margin-inline-start: 17px;
+    }
+    .chadesft {
+        padding-bottom: 25px;
+        font-size: 14px;
+        text-align: center;
+    }
+    #blockchart {
+        margin-top: 65px;
+        width: 100%;
+    }
+    .trial {
+        /* visibility: hidden; */
+        display: none;
+    }
     /* Beranda */
 }
 
 @media (min-width: 1200px) {
+    #galeri {
+        margin-top: 50px;
+        margin-bottom: 100px;
+    }
     #kartu {
         flex-direction: row;
         justify-content: space-between; /* Memberikan ruang di sekitar elemen */
@@ -939,6 +1165,10 @@ width: 150%; /* Sesuaikan dengan kebutuhan */
         margin-bottom: 25px;
     }
 
+    #cardb4 {
+        margin-bottom: 60px;
+    }
+
     #cardb3.cardb3v2 {
         border-radius: 30px;
         height: 552px;
@@ -975,6 +1205,60 @@ width: 150%; /* Sesuaikan dengan kebutuhan */
         padding-left: 75px;
         padding-bottom: 20px;
     }
+    #caroimg {
+        width: 85%; /* 3 gambar dalam 1 baris */
+        margin-inline: 25px;
+    }
+    #carousel {
+        padding-inline-start: 70px;
+        padding-inline-end: 70px;
+    }
+    .carousel-indicators {
+        top: 210px;
+    }
+    .carousel-indicators>
+        button[type=button] {
+            width: 100px;
+            height: 5px;
+        }
+    a.carousel-control-prev {
+        left: -30px
+    }
+    a.carousel-control-next {
+        right: -30px
+    }
+    #chadesc1 {
+        margin-inline-start: 42px;
+    }
+
+    #chadesc2 {
+        margin-inline-start: 25px;
+    }
+
+    #chadesc3 {
+        margin-inline-start: 25px;
+    }
+
+    #chadesc4 {
+        margin-inline-start: 21px;
+    }
+
+    #chadesc5 {
+        margin-inline-start: 23px;
+    }
+    .chadesft {
+        padding-bottom: 20px;
+        font-size: 15px;
+        text-align: center;
+    }
+    #blockchart {
+        margin-top: 100px;
+        width: 100%;
+    }
+    .trial {
+        /* visibility: hidden; */
+        display: none;
+    }
     /* Beranda */  
 }
 /* Ruang */
@@ -985,8 +1269,8 @@ width: 150%; /* Sesuaikan dengan kebutuhan */
     #bg2 {
     background-size: cover;
       background-image: 
-      /* -webkit-linear-gradient(right, rgb(255, 255, 255) 0%, rgba(0, 0, 0, 0) 25%, rgba(255, 255, 255, 0) 100%), */
-      -webkit-linear-gradient(bottom, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0) 90%, rgba(255, 255, 255, 0) 100%),
+      -webkit-linear-gradient(right, rgb(255, 255, 255) 0%, rgba(0, 0, 0, 0) 75%, rgba(255, 255, 255, 0) 100%),
+      -webkit-linear-gradient(bottom, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0) 100%),
       url('../assets/b2.jpg');
     background-repeat: no-repeat;
     background-position: 0 0px;
@@ -995,7 +1279,7 @@ width: 150%; /* Sesuaikan dengan kebutuhan */
 
 @media (min-width: 1400px) {
     #cardb3 {
-        margin-bottom: 25px;
+        margin-bottom: 110px;
     }
 
     #cardb3.cardb3v2 {
@@ -1023,12 +1307,64 @@ width: 150%; /* Sesuaikan dengan kebutuhan */
     }
     
     #ulca {
-        padding-top: 75px;
+        padding-top: 90px;
         padding-right: 45px;
         padding-left: 75px;
     }
     
     #ctex {
         padding-top: 60px;
+        padding-bottom: 40px;
+    }
+    #caroimg {
+        width: 85%; /* 3 gambar dalam 1 baris */
+        margin-inline: 30px;
+    }
+    #carousel {
+        padding-inline-start: 80px;
+        padding-inline-end: 80px;
+    }
+    .carousel-indicators {
+        top: 240px;
+    }
+    a.carousel-control-prev {
+        left: -35px
+    }
+    a.carousel-control-next {
+        right: -35px
+    }
+    #chadesc1 {
+        margin-inline-start: 55px;
+    }
+
+    #chadesc2 {
+        margin-inline-start: 25px;
+    }
+
+    #chadesc3 {
+        margin-inline-start: 26px;
+    }
+
+    #chadesc4 {
+        margin-inline-start: 25px;
+    }
+
+    #chadesc5 {
+        margin-inline-start: 23px;
+    }
+    .chadesft {
+        padding-bottom: 20px;
+        font-size: 14px;
+        text-align: center;
+    }
+    #blockchart {
+        margin-top: 75px;
+        width: 100%;
+    }
+    .trial {
+        /* visibility: hidden; */
+        display: none;
     }
 }
+
+
