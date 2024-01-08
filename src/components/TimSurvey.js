@@ -13,8 +13,12 @@ export default function TimSurvey() {
 
     useEffect(() => {
         const fetchData = () =>{
-         axios.get('https://1354-114-129-21-140.ngrok-free.app/api/Peminjaman').then(postData => {
-      
+         axios.get('https://dd8d-114-129-21-140.ngrok-free.app/api/Peminjaman', {
+          headers:{
+            'ngrok-skip-browser-warning': true
+        }
+     }).then(postData => {
+        // console.log(postData);  
          // reshaping the array
          const customHeadings = postData.data.map(item=>({
             "idPeminjaman": item.idPeminjaman,

@@ -431,6 +431,9 @@ input[type="number"]::-webkit-outer-spin-button {
     min-height: 100vh;
 }
 
+.jatem {
+    font-size: 14px;
+}
 /* /Jadwal */
 
 /* Media Query */

@@ -23,7 +23,9 @@ export default function Tamu() {
   // const [fas, setFas] = useState();
 
   const location = useLocation();
-  // console.log(location.state);
+  // const { namaPIC, noHp, email } = location.state;
+  // console.log(namaPIC);
+  console.log(location.state);
 
   function handleClick(){
     Swal.fire({  
@@ -38,9 +40,9 @@ export default function Tamu() {
 }
 
 // console.log(ruang);
-useEffect(() => {
+useEffect(() => { 
   const fetchData = () =>{
-   axios.get('https://39ff-114-129-21-140.ngrok-free.app/api/Ruangan', {
+   axios.get('https://4a28-114-129-21-140.ngrok-free.app/api/Ruangan', {
     headers:{
       'ngrok-skip-browser-warning': true
     }
@@ -54,6 +56,7 @@ useEffect(() => {
      "availability": item.availability,
 
    }))
+   
    setData(customHeadings)
      
    })
@@ -68,7 +71,7 @@ useEffect(() => {
   //   }).then(res => console.log(res.data))
 useEffect(() => {
   const fetchData = () =>{
-   axios.get('https://39ff-114-129-21-140.ngrok-free.app/api/Peminjaman', {
+   axios.get('https://4a28-114-129-21-140.ngrok-free.app/api/Peminjaman', {
     headers:{
       'ngrok-skip-browser-warning': true
     }
@@ -108,7 +111,7 @@ const handleSubmit = e => {
   // Prevent the default submit and page reload
   e.preventDefault()
   try {
-  axios.post('https://39ff-114-129-21-140.ngrok-free.app/api/Peminjaman', {
+  axios.post('https://4a28-114-129-21-140.ngrok-free.app/api/Peminjaman', {
     idRuangan: ruang,
     ticket: "",
     namaPIC: location.state.namaPIC,
@@ -144,7 +147,7 @@ const [kapasitas, SetKapasitas] = useState();
 window.addEventListener('click', function(event) {
   // Mendapatkan elemen yang diklik
   const clickedElement = event.target.value;
-  console.log(clickedElement);
+  // console.log(clickedElement);
 
   data.forEach(o => {
     if (clickedElement == o.idRuangan) {
@@ -156,15 +159,15 @@ window.addEventListener('click', function(event) {
 })
 const handleMinMax = (event) => {
   
-  data.map((e) => {
-    if (event.target.value == e.idRuangan) {
-      setMax(e.kapasitas)
-    }
-  })
-  const value = parseInt(event.target.value, 10);
-console.log(event)
+  // data.map((e) => {
+  //   if (event.target.value == e.idRuangan) {
+  //     setMax(e.kapasitas)
+  //   }
+  // })
+  const value = parseInt(event.target.value);
+// console.log(event)
   // Pastikan nilai yang dimasukkan tidak melebihi kapasitas maksimal ruangan
-  const nilaiTerbatas = Math.min(Math.max(value, 0), kapasitas);
+  const nilaiTerbatas = Math.min(Math.max(value), kapasitas);
   setJumlahTamu(isNaN(nilaiTerbatas) ? 0 : nilaiTerbatas);
 };
 
@@ -223,6 +226,8 @@ const handleTime = event => {
   }
 }
 
+
+
   return (
     <>
     <div className='ruang'>
@@ -267,10 +272,10 @@ const handleTime = event => {
                     <Form.Label className='mt-2'>Jumlah Tamu</Form.Label>
                     <div>
                     <Form.Control
-                      style={{width: 42, display: 'inline-block'}}
+                      style={{width: 45, display: 'inline-block'}}
                       required
                       type="number"
-                      placeholder=""
+                      placeholder="0"
                       value={jumlahTamu}
                       id='formgroup'
                       name="jumlahTamu"
@@ -353,7 +358,7 @@ const handleTime = event => {
                 <div className='button text-center' style={{marginTop: 35}}>
                     {(function() {
                       if (available === true) {
-                        return <Button className="BtnBrn" variant='dark' style={{backgroundColor: '#FDCD04', borderRadius: 30}} type="submit" onClick={handleSubmit}>
+                        return <Button className="BtnBrn" variant='dark' style={{backgroundColor: '#FDCD04', borderRadius: 30}} type="submit" onClick={handleClick}>
                                   <h3 style={{color: 'black', fontWeight: 700, fontFamily: 'inherit'}}>SUBMIT</h3>
                               </Button>
                       } else {
