@@ -21,7 +21,7 @@ export default function Jadwal() {
 
   useEffect(() => {
     const fetchData = () => {
-      axios.get('https://4a28-114-129-21-140.ngrok-free.app/api/Peminjaman', {
+      axios.get('https://44cc-101-255-166-178.ngrok-free.app/api/Peminjaman', {
           headers: {
             'ngrok-skip-browser-warning': true,
           },

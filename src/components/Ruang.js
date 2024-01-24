@@ -14,16 +14,17 @@ export default function Tamu() {
 
   const [peminjaman, setPeminjaman] = useState([]);
 
-  const [ruang, setRuang] = useState();
+  const [ruang, setRuang] = useState(0);
 
   const [keperluan, setKeperluan] = useState('Meeting');
 
   const [detailKeperluan, setDetailKeperluan] = useState('');
+  
 
   // const [fas, setFas] = useState();
 
   const location = useLocation();
-  // const { namaPIC, noHp, email } = location.state;
+  const { namaPIC, noHp, email } = location.state;
   // console.log(namaPIC);
   console.log(location.state);
 
@@ -42,7 +43,7 @@ export default function Tamu() {
 // console.log(ruang);
 useEffect(() => { 
   const fetchData = () =>{
-   axios.get('https://4a28-114-129-21-140.ngrok-free.app/api/Ruangan', {
+   axios.get('http://localhost:5041/api/Ruangan', {
     headers:{
       'ngrok-skip-browser-warning': true
     }
@@ -56,22 +57,15 @@ useEffect(() => {
      "availability": item.availability,
 
    }))
-   
    setData(customHeadings)
-     
    })
   }
   fetchData()
 }, [])  
 
-  // axios.get('https:/1354-114-129-21-140.ngrok-free.app/api/Ruangan', {
-  //     headers:{
-  //       'ngrok-skip-browser-warning': true
-  //     }
-  //   }).then(res => console.log(res.data))
 useEffect(() => {
   const fetchData = () =>{
-   axios.get('https://4a28-114-129-21-140.ngrok-free.app/api/Peminjaman', {
+   axios.get('http://localhost:5041/api/Peminjaman', {
     headers:{
       'ngrok-skip-browser-warning': true
     }
@@ -101,6 +95,7 @@ useEffect(() => {
 const [startTime, setStartTime] = useState('');
 const [endTime, setEndTime] = useState('');
 const [jumlahTamu, setJumlahTamu] = useState();
+const [maxTamu, setMaxTamu] = useState(0);
 const status = 'On Request';
 
 const today = moment();
@@ -111,18 +106,18 @@ const handleSubmit = e => {
   // Prevent the default submit and page reload
   e.preventDefault()
   try {
-  axios.post('https://4a28-114-129-21-140.ngrok-free.app/api/Peminjaman', {
-    idRuangan: ruang,
-    ticket: "",
-    namaPIC: location.state.namaPIC,
-    email: location.state.email,
-    noHp: location.state.noHp,
-    jumlahTamu: jumlahTamu,
-    startTime: startTime,
-    endTime: endTime,
-    kepentingan: keperluan,
-    detailKepentingan: detailKeperluan,
-    status: status
+  axios.post('http://localhost:5041/api/Peminjaman', {
+      idRuangan: ruang,
+      ticket: "",
+      namaPIC: location.state.namaPIC,
+      email: location.state.email,
+      noHp: location.state.noHp,
+      jumlahTamu: jumlahTamu,
+      startTime: startTime,
+      endTime: endTime,
+      kepentingan: keperluan,
+      detailKepentingan: detailKeperluan,
+      status: status 
   });
   } catch (error) {
     if (location.state == null) {
@@ -142,34 +137,50 @@ const handleSubmit = e => {
 
 // const min = 1;
 const [max, setMax] = useState();
-const [kapasitas, SetKapasitas] = useState();
+const [kapasitas, setKapasitas] = useState('');
 
 window.addEventListener('click', function(event) {
   // Mendapatkan elemen yang diklik
   const clickedElement = event.target.value;
   // console.log(clickedElement);
-
-  data.forEach(o => {
-    if (clickedElement == o.idRuangan) {
-      SetKapasitas(parseInt(o.kapasitas))
-      setMax(parseInt(o.kapasitas))
-      setJumlahTamu(0)
-    }
-  });
-})
-const handleMinMax = (event) => {
-  
-  // data.map((e) => {
-  //   if (event.target.value == e.idRuangan) {
-  //     setMax(e.kapasitas)
+  // data.map(x => {
+  //   if(x.idRuangan == clickedElement)
+  //   {
+  //     setRuang(event.target.value)
   //   }
   // })
-  const value = parseInt(event.target.value);
-// console.log(event)
-  // Pastikan nilai yang dimasukkan tidak melebihi kapasitas maksimal ruangan
-  const nilaiTerbatas = Math.min(Math.max(value), kapasitas);
-  setJumlahTamu(isNaN(nilaiTerbatas) ? 0 : nilaiTerbatas);
+  // console.log(ruang)
+  const d = data.find((room) => room.idRuangan == clickedElement);
+  if (d) {
+    setRuang(clickedElement);
+    setKapasitas(d.kapasitas);
+    console.log('luth', kapasitas);
+    console.log('coba', d.kapasitas);
+  }
+  // data.map(o => {
+  //   if (clickedElement == o.idRuangan) {
+  //     setKapasitas(o.kapasitas);
+  //     setMax(kapasitas);
+  //     setJumlahTamu();
+  //   }
+  // })
+});
+const [hasil, setHasil] = useState()
+//Perubahan ketika mengisi tamu
+const handleMinMax = (event) => {
+  const selectedRoom = data.find((room) => room.idRuangan === ruang);
+  if (selectedRoom) {
+    setMaxTamu(selectedRoom.kapasitas); // Set nilai maksimal berdasarkan kapasitas ruangan
+    setJumlahTamu(() => {
+      const newValue = Math.min(event.target.value, selectedRoom.kapasitas);
+      setHasil(newValue)
+      console.log("pret", jumlahTamu);
+      console.log("bre", hasil)
+      return newValue;
+    });
+  }
 };
+
 
 const   woo = data.map((dt) => dt.availability);
 // console.log(woo[0]);
@@ -275,11 +286,13 @@ const handleTime = event => {
                       style={{width: 45, display: 'inline-block'}}
                       required
                       type="number"
-                      placeholder="0"
+                      placeholder=""
                       value={jumlahTamu}
                       id='formgroup'
                       name="jumlahTamu"
-                      onChange={handleMinMax}
+                      onChange={handleMinMax} 
+                      
+                      max={maxTamu}
                     />
                     </div>
                   </div>

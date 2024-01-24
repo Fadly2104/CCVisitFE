@@ -67,7 +67,7 @@ export default function Beranda() {
     <div className="B1" style={{backgroundImage: `url(${UNTR})`,
                                 backgroundRepeat: "no-repeat",
                                 backgroundSize: "cover",
-                                height: 800
+                                height: 700
                             }}>  
     <Header />
 
