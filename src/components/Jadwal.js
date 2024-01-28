@@ -21,7 +21,7 @@ export default function Jadwal() {
 
   useEffect(() => {
     const fetchData = () => {
-      axios.get('https://44cc-101-255-166-178.ngrok-free.app/api/Peminjaman', {
+      axios.get('http:localhost:5041/api/Peminjaman', {
           headers: {
             'ngrok-skip-browser-warning': true,
           },
@@ -149,7 +149,7 @@ export default function Jadwal() {
               {/* Menambahkan navigasi pagination */}
               <div className='pagination'>
                 <button onClick={() => setCurrentPage(currentPage - 1)} disabled={currentPage === 1}>
-                  Previous
+                  Prev 
                 </button>
                 <span>{`Page ${currentPage} of ${totalPages}`}</span>
                 <button onClick={() => setCurrentPage(currentPage + 1)} disabled={currentPage === totalPages}>
